@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v \"^$\")",
+      "Bash(psql -U haydensnyder -h 127.0.0.1 -d postgres -c '\\\\du')"
+    ]
+  }
+}
