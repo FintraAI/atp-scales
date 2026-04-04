@@ -112,24 +112,6 @@ function LoginForm() {
             </button>
           </form>
 
-          <div className="mt-6 pt-5 border-t border-[#222222]">
-            <p className="text-[#333] text-[10px] text-center uppercase tracking-[0.15em] mb-3">Demo Credentials</p>
-            <div className="space-y-2">
-              {[
-                { label: 'Super Admin',       email: 'admin@atpscales.com' },
-                { label: 'Client — Velocity', email: 'mike@velocityroofing.com' },
-                { label: 'Client — Dental',   email: 'sarah@elitedentalstudio.com' },
-              ].map((cred) => (
-                <button key={cred.email} type="button"
-                  onClick={() => { setEmail(cred.email); setPassword('ATPScales2024!') }}
-                  className="w-full flex items-center justify-between px-3 py-2.5 bg-[#0C0C0C] hover:bg-[rgba(212,175,55,0.04)] border border-[#222222] hover:border-[rgba(212,175,55,0.15)] rounded-xl transition-all group">
-                  <span className="text-[12px] text-[#6B6B6B] group-hover:text-[#B3B3B3]">{cred.label}</span>
-                  <span className="text-[11px] text-[#333] group-hover:text-[#D4AF37] font-mono">{cred.email}</span>
-                </button>
-              ))}
-              <p className="text-center text-[#2A2A2A] text-[10px] mt-1.5 font-mono">Password: ATPScales2024!</p>
-            </div>
-          </div>
         </div>
 
         <p className="text-center text-[#2A2A2A] text-xs mt-5">
