@@ -25,7 +25,7 @@ export function MarketingNav() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-[#060606]/95 backdrop-blur-md border-b border-[#1C1C1C] shadow-[0_1px_0_0_rgba(201,168,76,0.06)]'
+        ? 'bg-[#050505]/95 backdrop-blur-md border-b border-[#222222] shadow-[0_1px_0_0_rgba(212,175,55,0.06)]'
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -42,7 +42,7 @@ export function MarketingNav() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[#666] hover:text-[#D8D8D8] text-[13px] font-medium tracking-wide transition-colors"
+                className="text-[#B3B3B3] hover:text-[#D8D8D8] text-[13px] font-medium tracking-wide transition-colors"
               >
                 {item.label}
               </Link>
@@ -53,7 +53,7 @@ export function MarketingNav() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/login"
-              className="text-[#555] hover:text-[#D8D8D8] text-[13px] font-medium transition-colors"
+              className="text-[#6B6B6B] hover:text-[#D8D8D8] text-[13px] font-medium transition-colors"
             >
               Client Login
             </Link>
@@ -68,7 +68,7 @@ export function MarketingNav() {
           {/* ── Mobile toggle ── */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-[#666] hover:text-[#D8D8D8] transition-colors p-1.5 rounded-lg"
+            className="md:hidden text-[#B3B3B3] hover:text-[#D8D8D8] transition-colors p-1.5 rounded-lg"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -77,13 +77,13 @@ export function MarketingNav() {
 
         {/* ── Mobile menu ── */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-[#1C1C1C] py-5 space-y-1 bg-[#060606]/98 backdrop-blur-md">
+          <div className="md:hidden border-t border-[#222222] py-5 space-y-1 bg-[#050505]/98 backdrop-blur-md">
             {[...NAV_LINKS, { href: '/login', label: 'Client Login' }].map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-2 py-3 text-[#666] hover:text-[#D8D8D8] text-sm font-medium transition-colors rounded-lg hover:bg-white/[0.02]"
+                className="block px-2 py-3 text-[#B3B3B3] hover:text-[#D8D8D8] text-sm font-medium transition-colors rounded-lg hover:bg-white/[0.02]"
               >
                 {item.label}
               </Link>

@@ -49,15 +49,15 @@ export function AtpLogo({ size = 'md', variant = 'full', className }: LogoProps)
         </linearGradient>
         {/* Gold gradient for SCALES + arrow */}
         <linearGradient id="goldGradLogo" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%"   stopColor="#9A7A35" />
-          <stop offset="40%"  stopColor="#E2C06A" />
-          <stop offset="70%"  stopColor="#C9A84C" />
+          <stop offset="0%"   stopColor="#8A6E2F" />
+          <stop offset="40%"  stopColor="#E6C65C" />
+          <stop offset="70%"  stopColor="#D4AF37" />
           <stop offset="100%" stopColor="#E8CC78" />
         </linearGradient>
         {/* Gold arrow gradient */}
         <linearGradient id="arrowGrad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%"   stopColor="#C9A84C" />
-          <stop offset="100%" stopColor="#E2C06A" />
+          <stop offset="0%"   stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#E6C65C" />
         </linearGradient>
       </defs>
 
@@ -134,12 +134,12 @@ export function AtpMark({ size = 32, className }: { size?: number; className?: s
           <stop offset="100%" stopColor="#C0C0C0" />
         </linearGradient>
         <linearGradient id="markGold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%"   stopColor="#C9A84C" />
-          <stop offset="100%" stopColor="#E2C06A" />
+          <stop offset="0%"   stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#E6C65C" />
         </linearGradient>
       </defs>
       {/* Background square */}
-      <rect width="40" height="40" rx="8" fill="#111111" />
+      <rect width="40" height="40" rx="8" fill="#0F0F0F" />
       {/* A letterform */}
       <path d="M6 32 L14 8 L22 32 M8.5 23 L19.5 23" stroke="url(#markSilver)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       {/* Gold arrow */}
@@ -173,14 +173,14 @@ export function AtpHorizontal({ height = 36, className }: { height?: number; cla
           <stop offset="100%" stopColor="#C0C0C0" />
         </linearGradient>
         <linearGradient id="hGold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%"   stopColor="#9A7A35" />
-          <stop offset="50%"  stopColor="#E2C06A" />
-          <stop offset="100%" stopColor="#C9A84C" />
+          <stop offset="0%"   stopColor="#8A6E2F" />
+          <stop offset="50%"  stopColor="#E6C65C" />
+          <stop offset="100%" stopColor="#D4AF37" />
         </linearGradient>
       </defs>
 
       {/* Mark background */}
-      <rect width="36" height="36" rx="7" fill="#111111" />
+      <rect width="36" height="36" rx="7" fill="#0F0F0F" />
 
       {/* A */}
       <path d="M4 28 L11.5 6 L19 28 M6 20 L17 20" stroke="url(#hSilver)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />

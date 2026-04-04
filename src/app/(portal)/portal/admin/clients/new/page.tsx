@@ -79,11 +79,11 @@ export default function NewClientPage() {
       {/* Header */}
       <div>
         <Link href="/portal/admin/clients"
-          className="inline-flex items-center gap-1.5 text-[#555] hover:text-[#C9A84C] text-sm transition-colors mb-5">
+          className="inline-flex items-center gap-1.5 text-[#6B6B6B] hover:text-[#D4AF37] text-sm transition-colors mb-5">
           <ArrowLeft className="w-3.5 h-3.5" /> All Clients
         </Link>
         <h1 className="font-display text-2xl font-bold text-white tracking-wide">Create New Client</h1>
-        <p className="text-[#555] text-sm mt-1">
+        <p className="text-[#6B6B6B] text-sm mt-1">
           Creates a login account and dashboard for the new client.
         </p>
       </div>
@@ -196,14 +196,14 @@ function SectionCard({
   icon: React.ElementType; title: string; subtitle: string; children: React.ReactNode
 }) {
   return (
-    <div className="bg-[#111111] border border-[#1C1C1C] rounded-2xl overflow-hidden">
-      <div className="px-6 py-4 border-b border-[#1C1C1C] flex items-center gap-3">
-        <div className="w-7 h-7 bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.15)] rounded-lg flex items-center justify-center shrink-0">
-          <Icon className="w-3.5 h-3.5 text-[#C9A84C]" />
+    <div className="bg-[#0F0F0F] border border-[#222222] rounded-2xl overflow-hidden">
+      <div className="px-6 py-4 border-b border-[#222222] flex items-center gap-3">
+        <div className="w-7 h-7 bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.15)] rounded-lg flex items-center justify-center shrink-0">
+          <Icon className="w-3.5 h-3.5 text-[#D4AF37]" />
         </div>
         <div>
           <p className="font-display font-semibold text-white text-sm tracking-wide">{title}</p>
-          <p className="text-[11px] text-[#444]">{subtitle}</p>
+          <p className="text-[11px] text-[#6B6B6B]">{subtitle}</p>
         </div>
       </div>
       <div className="p-6">{children}</div>
@@ -219,7 +219,7 @@ function Field({
   return (
     <div className={className}>
       <div className="flex items-baseline gap-2 mb-1.5">
-        <label className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#444]">{label}</label>
+        <label className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#6B6B6B]">{label}</label>
         {hint && <span className="text-[10px] text-[#333]">{hint}</span>}
       </div>
       {children}

@@ -50,7 +50,7 @@ export default async function AdminClientDetailPage({ params }: { params: { id: 
     <div className="space-y-6 max-w-5xl">
       {/* Back + Header */}
       <div>
-        <Link href="/portal/admin/clients" className="flex items-center gap-2 text-[#555] hover:text-white text-sm transition-colors mb-4">
+        <Link href="/portal/admin/clients" className="flex items-center gap-2 text-[#6B6B6B] hover:text-white text-sm transition-colors mb-4">
           <ArrowLeft className="w-4 h-4" /> All Clients
         </Link>
         <div className="flex items-start justify-between gap-4">
@@ -65,11 +65,11 @@ export default async function AdminClientDetailPage({ params }: { params: { id: 
                 {perfCfg.label}
               </span>
             </div>
-            <p className="text-[#888] text-sm mt-1">{client.industry} · {client.user.email}</p>
+            <p className="text-[#B3B3B3] text-sm mt-1">{client.industry} · {client.user.email}</p>
           </div>
           {client.website && (
             <a href={client.website} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs text-[#555] hover:text-[#c8ff00] transition-colors">
+              className="flex items-center gap-1.5 text-xs text-[#6B6B6B] hover:text-[#c8ff00] transition-colors">
               <ExternalLink className="w-3.5 h-3.5" /> Website
             </a>
           )}
@@ -80,7 +80,7 @@ export default async function AdminClientDetailPage({ params }: { params: { id: 
         {/* Left column - Info */}
         <div className="col-span-1 space-y-4">
           {/* Account info */}
-          <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-5 space-y-4">
+          <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-5 space-y-4">
             <h3 className="font-display font-semibold text-white text-sm">Account Details</h3>
             <InfoRow label="Plan" value={client.plan?.name || '—'} />
             <InfoRow label="Monthly Budget" value={client.monthlyBudget ? formatCurrency(Number(client.monthlyBudget)) : '—'} />
@@ -91,7 +91,7 @@ export default async function AdminClientDetailPage({ params }: { params: { id: 
 
           {/* Onboarding access status */}
           {client.onboarding && (
-            <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-5 space-y-3">
+            <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-5 space-y-3">
               <h3 className="font-display font-semibold text-white text-sm">Access Status</h3>
               <AccessRow label="Meta Ads" granted={client.onboarding.metaAccessGranted} />
               <AccessRow label="Google Ads" granted={client.onboarding.googleAccessGranted} />
@@ -101,14 +101,14 @@ export default async function AdminClientDetailPage({ params }: { params: { id: 
           )}
 
           {/* Integrations */}
-          <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-5 space-y-3">
+          <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-5 space-y-3">
             <h3 className="font-display font-semibold text-white text-sm">Integrations</h3>
             {client.integrations.length === 0 ? (
-              <p className="text-[#555] text-xs">No integrations connected</p>
+              <p className="text-[#6B6B6B] text-xs">No integrations connected</p>
             ) : (
               client.integrations.map((int) => (
                 <div key={int.id} className="flex items-center justify-between">
-                  <span className="text-[12px] text-[#888]">{int.provider.replace('_', ' ')}</span>
+                  <span className="text-[12px] text-[#B3B3B3]">{int.provider.replace('_', ' ')}</span>
                   <span className={`text-[11px] font-semibold px-2 py-0.5 rounded ${
                     int.status === 'CONNECTED' ? 'text-emerald-400 bg-emerald-400/10' :
                     int.status === 'ERROR' ? 'text-red-400 bg-red-400/10' :
@@ -126,26 +126,26 @@ export default async function AdminClientDetailPage({ params }: { params: { id: 
         <div className="col-span-2 space-y-4">
           {/* Onboarding */}
           {client.onboarding && (
-            <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-5 space-y-4">
+            <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-5 space-y-4">
               <h3 className="font-display font-semibold text-white text-sm">Onboarding Info</h3>
               {client.onboarding.offerName && (
                 <div>
-                  <p className="text-[11px] text-[#555] uppercase tracking-wider mb-1">Offer</p>
+                  <p className="text-[11px] text-[#6B6B6B] uppercase tracking-wider mb-1">Offer</p>
                   <p className="text-[13px] font-semibold text-white">{client.onboarding.offerName}</p>
                   {client.onboarding.offerPrice && (
-                    <p className="text-[12px] text-[#888] mt-0.5">{client.onboarding.offerPrice}</p>
+                    <p className="text-[12px] text-[#B3B3B3] mt-0.5">{client.onboarding.offerPrice}</p>
                   )}
                 </div>
               )}
               {client.onboarding.targetAudience && (
                 <div>
-                  <p className="text-[11px] text-[#555] uppercase tracking-wider mb-1">Target Audience</p>
+                  <p className="text-[11px] text-[#6B6B6B] uppercase tracking-wider mb-1">Target Audience</p>
                   <p className="text-[13px] text-[#aaa]">{client.onboarding.targetAudience}</p>
                 </div>
               )}
               {client.onboarding.callNotes && (
                 <div>
-                  <p className="text-[11px] text-[#555] uppercase tracking-wider mb-1">Call Notes</p>
+                  <p className="text-[11px] text-[#6B6B6B] uppercase tracking-wider mb-1">Call Notes</p>
                   <p className="text-[13px] text-[#aaa] leading-relaxed whitespace-pre-wrap">{client.onboarding.callNotes}</p>
                 </div>
               )}
@@ -166,7 +166,7 @@ export default async function AdminClientDetailPage({ params }: { params: { id: 
 function InfoRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-[12px] text-[#555]">{label}</span>
+      <span className="text-[12px] text-[#6B6B6B]">{label}</span>
       <span className="text-[12px] font-medium text-[#aaa]">{value}</span>
     </div>
   )
@@ -175,10 +175,10 @@ function InfoRow({ label, value }: { label: string; value: string }) {
 function AccessRow({ label, granted }: { label: string; granted: boolean }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-[12px] text-[#888]">{label}</span>
+      <span className="text-[12px] text-[#B3B3B3]">{label}</span>
       {granted
         ? <CheckCircle className="w-4 h-4 text-emerald-400" />
-        : <XCircle className="w-4 h-4 text-[#444]" />
+        : <XCircle className="w-4 h-4 text-[#6B6B6B]" />
       }
     </div>
   )

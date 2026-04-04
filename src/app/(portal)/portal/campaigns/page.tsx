@@ -13,13 +13,13 @@ const PLATFORM_BADGE: Record<string, string> = {
   TIKTOK:   'bg-pink-400/10 text-pink-400',
   LINKEDIN: 'bg-blue-300/10 text-blue-300',
   YOUTUBE:  'bg-red-400/10 text-red-400',
-  OTHER:    'bg-[#1C1C1C] text-[#555]',
+  OTHER:    'bg-[#222222] text-[#6B6B6B]',
 }
 
 const STATUS_CONFIG: Record<string, { label: string; dot: string; text: string }> = {
   ACTIVE:    { label: 'Active',   dot: 'bg-emerald-400', text: 'text-emerald-400' },
   PAUSED:    { label: 'Paused',   dot: 'bg-amber-400',   text: 'text-amber-400'   },
-  COMPLETED: { label: 'Complete', dot: 'bg-[#444]',      text: 'text-[#555]'      },
+  COMPLETED: { label: 'Complete', dot: 'bg-[#6B6B6B]',      text: 'text-[#6B6B6B]'      },
   DRAFT:     { label: 'Draft',    dot: 'bg-purple-400',  text: 'text-purple-400'  },
 }
 
@@ -36,7 +36,7 @@ export default async function CampaignsPage() {
   }
 
   if (!clientProfileId) {
-    return <div className="text-[#555] text-sm">No client data available.</div>
+    return <div className="text-[#6B6B6B] text-sm">No client data available.</div>
   }
 
   const { rows, totalSpend, totalLeads, blendedRoas } =
@@ -45,8 +45,8 @@ export default async function CampaignsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="font-display text-2xl font-bold text-[#EBEBEB] tracking-wide">Campaigns</h1>
-        <p className="text-[#555] text-sm mt-1">Last 30 days · {rows.length} campaigns</p>
+        <h1 className="font-display text-2xl font-bold text-[#FFFFFF] tracking-wide">Campaigns</h1>
+        <p className="text-[#6B6B6B] text-sm mt-1">Last 30 days · {rows.length} campaigns</p>
       </div>
 
       <div className="grid grid-cols-4 gap-3">
@@ -57,15 +57,15 @@ export default async function CampaignsPage() {
           { label: 'Blended ROAS',     value: formatRoas(blendedRoas),    gold: true  },
         ].map(s => (
           <div key={s.label} className={s.gold ? 'atp-card-gold kpi-card' : 'kpi-card'}>
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#444] mb-1.5">{s.label}</p>
-            <p className={`font-display font-bold text-xl ${s.gold ? 'gold-text' : 'text-[#EBEBEB]'}`}>{s.value}</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-[#6B6B6B] mb-1.5">{s.label}</p>
+            <p className={`font-display font-bold text-xl ${s.gold ? 'gold-text' : 'text-[#FFFFFF]'}`}>{s.value}</p>
           </div>
         ))}
       </div>
 
       <div className="atp-card overflow-hidden">
-        <div className="px-6 py-4 border-b border-[#1C1C1C]">
-          <h2 className="font-display font-bold text-[#EBEBEB] tracking-wide">Campaign Breakdown</h2>
+        <div className="px-6 py-4 border-b border-[#222222]">
+          <h2 className="font-display font-bold text-[#FFFFFF] tracking-wide">Campaign Breakdown</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="w-full data-table">
@@ -92,20 +92,20 @@ export default async function CampaignsPage() {
                 return (
                   <tr key={c.id}>
                     <td>
-                      <p className="font-semibold text-[#EBEBEB] text-[13px] max-w-[200px] truncate">{c.name}</p>
-                      {c.objective && <p className="text-[10px] text-[#444] mt-0.5">{c.objective}</p>}
+                      <p className="font-semibold text-[#FFFFFF] text-[13px] max-w-[200px] truncate">{c.name}</p>
+                      {c.objective && <p className="text-[10px] text-[#6B6B6B] mt-0.5">{c.objective}</p>}
                     </td>
                     <td>
                       <span className={`text-[10px] font-bold px-2 py-1 rounded-md ${platClass}`}>{c.platform}</span>
                     </td>
                     <td className="text-right font-semibold">{formatCurrency(c.spend)}</td>
-                    <td className="text-right text-[#666]">{formatNumber(c.impressions, true)}</td>
-                    <td className="text-right text-[#666]">{formatNumber(c.clicks, true)}</td>
-                    <td className="text-right text-[#666]">{formatPercent(c.ctr, 2)}</td>
-                    <td className="text-right text-[#666]">{formatCurrency(c.cpc)}</td>
+                    <td className="text-right text-[#B3B3B3]">{formatNumber(c.impressions, true)}</td>
+                    <td className="text-right text-[#B3B3B3]">{formatNumber(c.clicks, true)}</td>
+                    <td className="text-right text-[#B3B3B3]">{formatPercent(c.ctr, 2)}</td>
+                    <td className="text-right text-[#B3B3B3]">{formatCurrency(c.cpc)}</td>
                     <td className="text-right font-semibold text-[#D8D8D8]">{formatNumber(c.leads)}</td>
-                    <td className="text-right text-[#666]">{formatCurrency(c.cpl)}</td>
-                    <td className="text-right text-[#666]">{formatNumber(c.purchases)}</td>
+                    <td className="text-right text-[#B3B3B3]">{formatCurrency(c.cpl)}</td>
+                    <td className="text-right text-[#B3B3B3]">{formatNumber(c.purchases)}</td>
                     <td className="text-right">
                       <span className={`font-display font-bold text-[15px] ${
                         c.roas >= 4 ? 'gold-text' : c.roas >= 2 ? 'text-[#D8D8D8]' : 'text-red-400'

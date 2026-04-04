@@ -29,7 +29,7 @@ export default async function DashboardPage() {
   if (!session.user.clientProfileId) {
     return (
       <div className="flex items-center justify-center h-64">
-        <p className="text-[#555] text-sm">No dashboard found. Contact your account manager.</p>
+        <p className="text-[#6B6B6B] text-sm">No dashboard found. Contact your account manager.</p>
       </div>
     )
   }
@@ -45,7 +45,7 @@ export default async function DashboardPage() {
           <h1 className="font-display text-2xl font-bold text-white">
             {data.profile?.companyName || 'Dashboard'}
           </h1>
-          <p className="text-[#555] text-sm mt-1">Last 30 days performance overview</p>
+          <p className="text-[#6B6B6B] text-sm mt-1">Last 30 days performance overview</p>
         </div>
         {data.profile?.performanceStatus && (
           <PerformanceBadge status={data.profile.performanceStatus} />

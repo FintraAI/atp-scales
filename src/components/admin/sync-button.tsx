@@ -43,10 +43,10 @@ export function SyncButton({ label, endpoint, body, small }: SyncButtonProps) {
     : 'flex items-center gap-2 px-3 py-2 rounded-lg text-[12px] font-semibold border transition-all'
 
   const stateClass =
-    state === 'loading' ? 'bg-[rgba(201,168,76,0.05)] border-[rgba(201,168,76,0.15)] text-[#C9A84C]'
+    state === 'loading' ? 'bg-[rgba(212,175,55,0.05)] border-[rgba(212,175,55,0.15)] text-[#D4AF37]'
     : state === 'success' ? 'bg-emerald-400/5 border-emerald-400/20 text-emerald-400'
     : state === 'error'   ? 'bg-red-400/5 border-red-400/20 text-red-400'
-    : 'bg-[rgba(201,168,76,0.05)] border-[rgba(201,168,76,0.15)] text-[#C9A84C] hover:bg-[rgba(201,168,76,0.1)]'
+    : 'bg-[rgba(212,175,55,0.05)] border-[rgba(212,175,55,0.15)] text-[#D4AF37] hover:bg-[rgba(212,175,55,0.1)]'
 
   return (
     <button onClick={handleSync} disabled={state === 'loading'} className={`${baseClass} ${stateClass}`}>

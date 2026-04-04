@@ -49,7 +49,7 @@ export default async function UpdatesPage() {
   }
 
   if (!clientProfileId) {
-    return <div className="text-[#888] text-sm">No client selected.</div>
+    return <div className="text-[#B3B3B3] text-sm">No client selected.</div>
   }
 
   const updates = await getUpdates(clientProfileId)
@@ -61,7 +61,7 @@ export default async function UpdatesPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-display text-2xl font-bold text-white">Updates</h1>
-          <p className="text-[#888] text-sm mt-1">
+          <p className="text-[#B3B3B3] text-sm mt-1">
             {unreadCount > 0 ? (
               <span className="flex items-center gap-1.5">
                 <Bell className="w-3.5 h-3.5 text-[#c8ff00]" />
@@ -77,9 +77,9 @@ export default async function UpdatesPage() {
       {/* Update cards */}
       <div className="space-y-4">
         {updates.length === 0 ? (
-          <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-12 text-center">
+          <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-12 text-center">
             <Bell className="w-8 h-8 text-[#333] mx-auto mb-3" />
-            <p className="text-[#555] text-sm">No updates yet. Your account manager will post updates here.</p>
+            <p className="text-[#6B6B6B] text-sm">No updates yet. Your account manager will post updates here.</p>
           </div>
         ) : (
           updates.map((update) => {
@@ -87,7 +87,7 @@ export default async function UpdatesPage() {
             return (
               <article
                 key={update.id}
-                className={`bg-[#141414] border rounded-2xl overflow-hidden transition-colors ${
+                className={`bg-[#181818] border rounded-2xl overflow-hidden transition-colors ${
                   !update.isRead ? 'border-[#c8ff00]/20' : 'border-[#1e1e1e]'
                 }`}
               >
@@ -102,7 +102,7 @@ export default async function UpdatesPage() {
                         {cat.label}
                       </span>
                       {update.isPinned && (
-                        <span className="flex items-center gap-1 text-[10px] text-[#555] font-medium">
+                        <span className="flex items-center gap-1 text-[10px] text-[#6B6B6B] font-medium">
                           <Pin className="w-3 h-3" /> Pinned
                         </span>
                       )}
@@ -126,13 +126,13 @@ export default async function UpdatesPage() {
                 <div className="px-6 py-3 border-t border-[#1a1a1a] flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <div className="w-5 h-5 bg-[#1e1e1e] rounded-full flex items-center justify-center">
-                      <span className="text-[9px] font-bold text-[#888]">
+                      <span className="text-[9px] font-bold text-[#B3B3B3]">
                         {update.author.name?.[0]?.toUpperCase() || 'A'}
                       </span>
                     </div>
-                    <span className="text-[12px] text-[#555]">{update.author.name || 'ATP Scales'}</span>
+                    <span className="text-[12px] text-[#6B6B6B]">{update.author.name || 'ATP Scales'}</span>
                   </div>
-                  <span className="text-[11px] text-[#444]">
+                  <span className="text-[11px] text-[#6B6B6B]">
                     {update.publishedAt
                       ? `${formatRelativeTime(update.publishedAt)} · ${formatDate(update.publishedAt)}`
                       : formatRelativeTime(update.createdAt)}

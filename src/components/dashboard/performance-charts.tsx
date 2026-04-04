@@ -8,22 +8,22 @@ import {
 } from 'recharts'
 import type { ChartDataPoint } from '@/types'
 
-const GOLD   = '#C9A84C'
+const GOLD   = '#D4AF37'
 const SILVER = '#D8D8D8'
-const DIM    = '#555555'
+const DIM    = '#6B6B6B'
 
 const Tip = ({ active, payload, label }: any) => {
   if (!active || !payload?.length) return null
   return (
-    <div className="bg-[#111] border border-[#262626] rounded-xl p-3 shadow-2xl text-[12px] min-w-[140px]">
-      <p className="text-[#555] uppercase tracking-wider text-[10px] font-bold mb-2">{label}</p>
+    <div className="bg-[#0F0F0F] border border-[#262626] rounded-xl p-3 shadow-2xl text-[12px] min-w-[140px]">
+      <p className="text-[#6B6B6B] uppercase tracking-wider text-[10px] font-bold mb-2">{label}</p>
       {payload.map((e: any) => (
         <div key={e.name} className="flex justify-between gap-4 items-center">
-          <span className="flex items-center gap-1.5 text-[#888]">
+          <span className="flex items-center gap-1.5 text-[#B3B3B3]">
             <span className="w-1.5 h-1.5 rounded-full" style={{ background: e.color }} />
             {e.name}
           </span>
-          <span className="font-bold text-[#EBEBEB]">{
+          <span className="font-bold text-[#FFFFFF]">{
             typeof e.value === 'number' && e.name !== 'ROAS'
               ? e.value.toLocaleString()
               : typeof e.value === 'number'
@@ -48,12 +48,12 @@ export function PerformanceCharts({ chartData }: { chartData: ChartDataPoint[] }
   return (
     <div className="atp-card p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="font-display font-bold text-[#EBEBEB] text-lg tracking-wide">Performance Trends</h2>
-        <div className="flex gap-1 bg-[#0C0C0C] p-1 rounded-lg border border-[#1C1C1C]">
+        <h2 className="font-display font-bold text-[#FFFFFF] text-lg tracking-wide">Performance Trends</h2>
+        <div className="flex gap-1 bg-[#0C0C0C] p-1 rounded-lg border border-[#222222]">
           {TABS.map(t => (
             <button key={t.id} onClick={() => setTab(t.id)}
               className={`px-3 py-1.5 rounded-md text-[11px] font-semibold transition-all ${
-                tab === t.id ? 'bg-[#C9A84C] text-black' : 'text-[#555] hover:text-[#888]'
+                tab === t.id ? 'bg-[#D4AF37] text-black' : 'text-[#6B6B6B] hover:text-[#B3B3B3]'
               }`}>
               {t.label}
             </button>
@@ -76,8 +76,8 @@ export function PerformanceCharts({ chartData }: { chartData: ChartDataPoint[] }
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-              <XAxis dataKey="date" tick={{ fill:'#444', fontSize:11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill:'#444', fontSize:11 }} axisLine={false} tickLine={false} tickFormatter={v=>`$${(v/1000).toFixed(0)}k`} />
+              <XAxis dataKey="date" tick={{ fill:'#6B6B6B', fontSize:11 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill:'#6B6B6B', fontSize:11 }} axisLine={false} tickLine={false} tickFormatter={v=>`$${(v/1000).toFixed(0)}k`} />
               <Tooltip content={<Tip />} />
               <Area type="monotone" dataKey="adSpend" name="Ad Spend" stroke={DIM}  strokeWidth={1.5} fill="url(#spendG)" />
               <Area type="monotone" dataKey="revenue" name="Revenue"  stroke={GOLD} strokeWidth={2}   fill="url(#revG)"   />
@@ -88,11 +88,11 @@ export function PerformanceCharts({ chartData }: { chartData: ChartDataPoint[] }
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-              <XAxis dataKey="date" tick={{ fill:'#444', fontSize:11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill:'#444', fontSize:11 }} axisLine={false} tickLine={false} tickFormatter={v=>`${v.toFixed(1)}x`} />
+              <XAxis dataKey="date" tick={{ fill:'#6B6B6B', fontSize:11 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill:'#6B6B6B', fontSize:11 }} axisLine={false} tickLine={false} tickFormatter={v=>`${v.toFixed(1)}x`} />
               <Tooltip content={<Tip />} />
               <Line type="monotone" dataKey="roas" name="ROAS" stroke={GOLD} strokeWidth={2.5} dot={false}
-                activeDot={{ r:5, fill: GOLD, stroke:'#060606', strokeWidth:2 }} />
+                activeDot={{ r:5, fill: GOLD, stroke:'#050505', strokeWidth:2 }} />
             </LineChart>
           </ResponsiveContainer>
         )}
@@ -100,8 +100,8 @@ export function PerformanceCharts({ chartData }: { chartData: ChartDataPoint[] }
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }} barGap={2}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-              <XAxis dataKey="date" tick={{ fill:'#444', fontSize:11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill:'#444', fontSize:11 }} axisLine={false} tickLine={false} />
+              <XAxis dataKey="date" tick={{ fill:'#6B6B6B', fontSize:11 }} axisLine={false} tickLine={false} />
+              <YAxis tick={{ fill:'#6B6B6B', fontSize:11 }} axisLine={false} tickLine={false} />
               <Tooltip content={<Tip />} />
               <Bar dataKey="leads"        name="Leads"        fill={SILVER} radius={[3,3,0,0]} opacity={0.7} />
               <Bar dataKey="appointments" name="Appointments" fill={GOLD}   radius={[3,3,0,0]} />

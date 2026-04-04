@@ -71,7 +71,7 @@ export function PortalSidebar({ user, unreadCount }: SidebarProps) {
         <div className={cn(
           'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[9px] font-bold uppercase tracking-[0.14em] border',
           isAdmin
-            ? 'bg-[rgba(201,168,76,0.06)] text-[#9A7A35] border-[rgba(201,168,76,0.14)]'
+            ? 'bg-[rgba(212,175,55,0.06)] text-[#8A6E2F] border-[rgba(212,175,55,0.14)]'
             : 'bg-[rgba(128,128,128,0.04)] border-[var(--border-subtle)]'
         )}
           style={isAdmin ? {} : { color: 'var(--text-xfaint)' }}
@@ -95,7 +95,7 @@ export function PortalSidebar({ user, unreadCount }: SidebarProps) {
               <Icon className="w-[14px] h-[14px] shrink-0" />
               <span className="flex-1 truncate">{item.label}</span>
               {item.badge && unreadCount > 0 && (
-                <span className="w-[18px] h-[18px] rounded-full bg-[#C9A84C] text-black text-[9px] font-black flex items-center justify-center shrink-0">
+                <span className="w-[18px] h-[18px] rounded-full bg-[#D4AF37] text-black text-[9px] font-black flex items-center justify-center shrink-0">
                   {unreadCount > 9 ? '9+' : unreadCount}
                 </span>
               )}
@@ -116,11 +116,11 @@ export function PortalSidebar({ user, unreadCount }: SidebarProps) {
           <div
             className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
             style={{
-              background: 'rgba(201,168,76,0.08)',
-              border: '1px solid rgba(201,168,76,0.15)',
+              background: 'rgba(212,175,55,0.08)',
+              border: '1px solid rgba(212,175,55,0.15)',
             }}
           >
-            <span className="text-[10px] font-bold text-[#C9A84C]">
+            <span className="text-[10px] font-bold text-[#D4AF37]">
               {user.name?.[0]?.toUpperCase() || user.email?.[0]?.toUpperCase() || '?'}
             </span>
           </div>

@@ -44,7 +44,7 @@ export function PostUpdateForm({ clientProfileId, authorId }: { clientProfileId:
   }
 
   return (
-    <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-5">
+    <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-5">
       <h3 className="font-display font-semibold text-white text-sm mb-4">Post Client Update</h3>
       <form onSubmit={handleSubmit} className="space-y-3">
         <div className="flex gap-3">
@@ -53,12 +53,12 @@ export function PostUpdateForm({ clientProfileId, authorId }: { clientProfileId:
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Update title..."
             required
-            className="flex-1 bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg px-3 py-2.5 text-sm text-white placeholder-[#444] focus:outline-none focus:border-[#c8ff00]/30 transition-colors"
+            className="flex-1 bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg px-3 py-2.5 text-sm text-white placeholder-[#6B6B6B] focus:outline-none focus:border-[#c8ff00]/30 transition-colors"
           />
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
-            className="bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg px-3 py-2.5 text-sm text-[#888] focus:outline-none focus:border-[#c8ff00]/30 transition-colors"
+            className="bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg px-3 py-2.5 text-sm text-[#B3B3B3] focus:outline-none focus:border-[#c8ff00]/30 transition-colors"
           >
             {CATEGORIES.map((c) => (
               <option key={c.value} value={c.value}>{c.label}</option>
@@ -72,11 +72,11 @@ export function PostUpdateForm({ clientProfileId, authorId }: { clientProfileId:
           placeholder="Write your update... (Markdown supported: **bold**, bullet points with -, numbered lists)"
           required
           rows={6}
-          className="w-full bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg px-3 py-2.5 text-sm text-white placeholder-[#444] focus:outline-none focus:border-[#c8ff00]/30 transition-colors resize-y font-mono text-[12px] leading-relaxed"
+          className="w-full bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg px-3 py-2.5 text-sm text-white placeholder-[#6B6B6B] focus:outline-none focus:border-[#c8ff00]/30 transition-colors resize-y font-mono text-[12px] leading-relaxed"
         />
 
         <div className="flex items-center justify-between">
-          <label className="flex items-center gap-2 text-[12px] text-[#888] cursor-pointer">
+          <label className="flex items-center gap-2 text-[12px] text-[#B3B3B3] cursor-pointer">
             <input
               type="checkbox"
               checked={isPinned}

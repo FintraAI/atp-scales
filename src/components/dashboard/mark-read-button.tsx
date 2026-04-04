@@ -21,7 +21,7 @@ export function MarkReadButton({ updateId }: { updateId: string }) {
     <button
       onClick={handleMark}
       disabled={loading}
-      className="flex items-center gap-1.5 text-[12px] text-[#555] hover:text-[#c8ff00] transition-colors shrink-0 font-medium"
+      className="flex items-center gap-1.5 text-[12px] text-[#6B6B6B] hover:text-[#c8ff00] transition-colors shrink-0 font-medium"
     >
       <Check className="w-3.5 h-3.5" />
       {loading ? 'Marking...' : 'Mark read'}

@@ -31,8 +31,8 @@ function KPICard({ label, value, change, icon: Icon, gold }: {
   return (
     <div className={gold ? 'atp-card-gold kpi-card' : 'kpi-card'}>
       <div className="flex items-start justify-between mb-3">
-        <div className={`p-1.5 rounded-lg ${gold ? 'bg-[rgba(201,168,76,0.1)]' : 'bg-[rgba(255,255,255,0.04)]'}`}>
-          <Icon className={`w-3.5 h-3.5 ${gold ? 'text-[#C9A84C]' : 'text-[#555]'}`} />
+        <div className={`p-1.5 rounded-lg ${gold ? 'bg-[rgba(212,175,55,0.1)]' : 'bg-[rgba(255,255,255,0.04)]'}`}>
+          <Icon className={`w-3.5 h-3.5 ${gold ? 'text-[#D4AF37]' : 'text-[#6B6B6B]'}`} />
         </div>
         {hasChange && (
           <span className={`flex items-center gap-0.5 text-[11px] font-bold ${up ? 'text-[#00D278]' : 'text-[#FF5A5A]'}`}>
@@ -41,8 +41,8 @@ function KPICard({ label, value, change, icon: Icon, gold }: {
           </span>
         )}
       </div>
-      <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#444] mb-1.5">{label}</p>
-      <p className={`text-[20px] font-display font-bold leading-none ${gold ? 'gold-text' : 'text-[#EBEBEB]'}`}>{value}</p>
+      <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#6B6B6B] mb-1.5">{label}</p>
+      <p className={`text-[20px] font-display font-bold leading-none ${gold ? 'gold-text' : 'text-[#FFFFFF]'}`}>{value}</p>
     </div>
   )
 }

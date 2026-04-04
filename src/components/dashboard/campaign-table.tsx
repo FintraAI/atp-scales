@@ -27,17 +27,17 @@ const STATUS_COLORS: Record<string, string> = {
 export function CampaignTable({ campaigns }: CampaignTableProps) {
   if (campaigns.length === 0) {
     return (
-      <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-8 text-center">
-        <p className="text-[#555] text-sm">No campaigns found for this period.</p>
+      <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-8 text-center">
+        <p className="text-[#6B6B6B] text-sm">No campaigns found for this period.</p>
       </div>
     )
   }
 
   return (
-    <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl overflow-hidden">
+    <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl overflow-hidden">
       <div className="flex items-center justify-between px-6 py-4 border-b border-[#1e1e1e]">
         <h2 className="font-display font-semibold text-white text-base">Campaign Performance</h2>
-        <span className="text-[#555] text-xs">{campaigns.length} campaigns · Last 30 days</span>
+        <span className="text-[#6B6B6B] text-xs">{campaigns.length} campaigns · Last 30 days</span>
       </div>
 
       <div className="overflow-x-auto">
@@ -65,7 +65,7 @@ export function CampaignTable({ campaigns }: CampaignTableProps) {
                   <div className="max-w-[200px]">
                     <p className="font-medium text-white text-[13px] truncate">{c.name}</p>
                     {c.objective && (
-                      <p className="text-[11px] text-[#555] mt-0.5">{c.objective}</p>
+                      <p className="text-[11px] text-[#6B6B6B] mt-0.5">{c.objective}</p>
                     )}
                   </div>
                 </td>
@@ -75,13 +75,13 @@ export function CampaignTable({ campaigns }: CampaignTableProps) {
                   </span>
                 </td>
                 <td className="text-right font-semibold">{formatCurrency(c.spend)}</td>
-                <td className="text-right text-[#888]">{formatNumber(c.impressions, true)}</td>
-                <td className="text-right text-[#888]">{formatNumber(c.clicks, true)}</td>
-                <td className="text-right text-[#888]">{formatPercent(c.ctr, 2)}</td>
-                <td className="text-right text-[#888]">{formatCurrency(c.cpc)}</td>
+                <td className="text-right text-[#B3B3B3]">{formatNumber(c.impressions, true)}</td>
+                <td className="text-right text-[#B3B3B3]">{formatNumber(c.clicks, true)}</td>
+                <td className="text-right text-[#B3B3B3]">{formatPercent(c.ctr, 2)}</td>
+                <td className="text-right text-[#B3B3B3]">{formatCurrency(c.cpc)}</td>
                 <td className="text-right font-medium text-blue-400">{formatNumber(c.leads)}</td>
-                <td className="text-right text-[#888]">{formatCurrency(c.cpl)}</td>
-                <td className="text-right text-[#888]">{formatNumber(c.purchases)}</td>
+                <td className="text-right text-[#B3B3B3]">{formatCurrency(c.cpl)}</td>
+                <td className="text-right text-[#B3B3B3]">{formatNumber(c.purchases)}</td>
                 <td className="text-right">
                   <span className={`font-bold font-display ${c.roas >= 3 ? 'text-[#c8ff00]' : c.roas >= 1.5 ? 'text-amber-400' : 'text-red-400'}`}>
                     {formatRoas(c.roas)}

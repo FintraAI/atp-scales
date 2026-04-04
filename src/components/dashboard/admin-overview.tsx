@@ -56,7 +56,7 @@ export function AdminOverview({ data }: AdminOverviewProps) {
       <div className="flex items-start justify-between">
         <div>
           <h1 className="font-display text-2xl font-bold text-white tracking-wide">Agency Overview</h1>
-          <p className="text-[#555] text-sm mt-1">All clients · Last 30 days</p>
+          <p className="text-[#6B6B6B] text-sm mt-1">All clients · Last 30 days</p>
         </div>
         <Link
           href="/portal/admin/clients"
@@ -71,12 +71,12 @@ export function AdminOverview({ data }: AdminOverviewProps) {
         {topStats.map((stat) => (
           <div key={stat.label} className={stat.gold ? 'atp-card-gold kpi-card' : 'kpi-card'}>
             <div className="flex items-start justify-between mb-3">
-              <div className={`p-1.5 rounded-lg ${stat.gold ? 'bg-[rgba(201,168,76,0.1)]' : 'bg-white/[0.04]'}`}>
-                <stat.icon className={`w-3.5 h-3.5 ${stat.gold ? 'text-[#C9A84C]' : 'text-[#555]'}`} />
+              <div className={`p-1.5 rounded-lg ${stat.gold ? 'bg-[rgba(212,175,55,0.1)]' : 'bg-white/[0.04]'}`}>
+                <stat.icon className={`w-3.5 h-3.5 ${stat.gold ? 'text-[#D4AF37]' : 'text-[#6B6B6B]'}`} />
               </div>
             </div>
-            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#444] mb-1">{stat.label}</p>
-            <p className={`text-[22px] font-display font-bold leading-none ${stat.gold ? 'gold-text' : 'text-[#EBEBEB]'}`}>
+            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#6B6B6B] mb-1">{stat.label}</p>
+            <p className={`text-[22px] font-display font-bold leading-none ${stat.gold ? 'gold-text' : 'text-[#FFFFFF]'}`}>
               {stat.value}
             </p>
             <p className="text-[11px] text-[#333] mt-1.5">{stat.sub}</p>
@@ -85,15 +85,15 @@ export function AdminOverview({ data }: AdminOverviewProps) {
       </div>
 
       {/* Client list */}
-      <div className="bg-[#111111] border border-[#1C1C1C] rounded-2xl overflow-hidden">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#1C1C1C]">
+      <div className="bg-[#0F0F0F] border border-[#222222] rounded-2xl overflow-hidden">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-[#222222]">
           <div>
             <h2 className="font-display font-semibold text-white tracking-wide">All Clients</h2>
-            <p className="text-[#444] text-[11px] mt-0.5">{data.clients.length} accounts</p>
+            <p className="text-[#6B6B6B] text-[11px] mt-0.5">{data.clients.length} accounts</p>
           </div>
           <Link
             href="/portal/admin/clients"
-            className="flex items-center gap-1.5 text-[#C9A84C] text-xs font-semibold hover:text-[#E2C06A] transition-colors"
+            className="flex items-center gap-1.5 text-[#D4AF37] text-xs font-semibold hover:text-[#E6C65C] transition-colors"
           >
             View all <ArrowRight className="w-3 h-3" />
           </Link>
@@ -112,11 +112,11 @@ export function AdminOverview({ data }: AdminOverviewProps) {
                 className="flex items-center gap-4 px-6 py-4 hover:bg-white/[0.015] transition-colors group"
               >
                 {/* Avatar */}
-                <div className="w-10 h-10 bg-[#1A1A1A] border border-[#222] rounded-xl flex items-center justify-center shrink-0 group-hover:border-[rgba(201,168,76,0.2)] transition-colors">
+                <div className="w-10 h-10 bg-[#1A1A1A] border border-[#222] rounded-xl flex items-center justify-center shrink-0 group-hover:border-[rgba(212,175,55,0.2)] transition-colors">
                   {client.logoUrl ? (
                     <img src={client.logoUrl} alt={client.companyName} className="w-8 h-8 rounded-lg object-cover" />
                   ) : (
-                    <span className="text-[13px] font-bold text-[#666] group-hover:text-[#C9A84C] transition-colors">
+                    <span className="text-[13px] font-bold text-[#B3B3B3] group-hover:text-[#D4AF37] transition-colors">
                       {client.companyName[0]}
                     </span>
                   )}
@@ -129,12 +129,12 @@ export function AdminOverview({ data }: AdminOverviewProps) {
                       {client.companyName}
                     </p>
                     {unread > 0 && (
-                      <span className="shrink-0 text-[9px] bg-[#C9A84C] text-black font-black px-1.5 py-0.5 rounded-full leading-none">
+                      <span className="shrink-0 text-[9px] bg-[#D4AF37] text-black font-black px-1.5 py-0.5 rounded-full leading-none">
                         {unread}
                       </span>
                     )}
                   </div>
-                  <div className="flex items-center gap-2 text-[11px] text-[#444]">
+                  <div className="flex items-center gap-2 text-[11px] text-[#6B6B6B]">
                     {client.industry && <span>{client.industry}</span>}
                     {client.plan && <><span>·</span><span>{client.plan.name} Plan</span></>}
                     {client.accountManager && <><span>·</span><span>{client.accountManager.name}</span></>}
@@ -153,7 +153,7 @@ export function AdminOverview({ data }: AdminOverviewProps) {
                     }`} />
                     {perfCfg.label}
                   </span>
-                  <ChevronRight className="w-4 h-4 text-[#2A2A2A] group-hover:text-[#555] transition-colors" />
+                  <ChevronRight className="w-4 h-4 text-[#2A2A2A] group-hover:text-[#6B6B6B] transition-colors" />
                 </div>
               </Link>
             )
@@ -162,8 +162,8 @@ export function AdminOverview({ data }: AdminOverviewProps) {
           {data.clients.length === 0 && (
             <div className="px-6 py-12 text-center">
               <Users className="w-8 h-8 text-[#2A2A2A] mx-auto mb-3" />
-              <p className="text-[#555] text-sm">No clients yet.</p>
-              <Link href="/portal/admin/clients/new" className="inline-flex items-center gap-1.5 mt-3 text-[#C9A84C] text-sm font-medium hover:text-[#E2C06A] transition-colors">
+              <p className="text-[#6B6B6B] text-sm">No clients yet.</p>
+              <Link href="/portal/admin/clients/new" className="inline-flex items-center gap-1.5 mt-3 text-[#D4AF37] text-sm font-medium hover:text-[#E6C65C] transition-colors">
                 Add your first client <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

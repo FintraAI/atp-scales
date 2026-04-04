@@ -46,8 +46,8 @@ export function PortalTopbar({ user }: TopbarProps) {
           <div
             className="w-7 h-7 rounded-full flex items-center justify-center"
             style={{
-              background: 'rgba(201,168,76,0.10)',
-              border: '1px solid rgba(201,168,76,0.20)',
+              background: 'rgba(212,175,55,0.10)',
+              border: '1px solid rgba(212,175,55,0.20)',
             }}
           >
             <span className="text-[11px] font-bold" style={{ color: 'var(--gold)' }}>

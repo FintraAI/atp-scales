@@ -39,7 +39,7 @@ export default async function FilesPage() {
   }
 
   if (!clientProfileId) {
-    return <div className="text-[#888] text-sm">No client selected.</div>
+    return <div className="text-[#B3B3B3] text-sm">No client selected.</div>
   }
 
   const files = await prisma.clientFile.findMany({
@@ -56,13 +56,13 @@ export default async function FilesPage() {
     <div className="space-y-6 max-w-4xl">
       <div>
         <h1 className="font-display text-2xl font-bold text-white">Files & Reports</h1>
-        <p className="text-[#888] text-sm mt-1">{files.length} file{files.length !== 1 ? 's' : ''} shared with you</p>
+        <p className="text-[#B3B3B3] text-sm mt-1">{files.length} file{files.length !== 1 ? 's' : ''} shared with you</p>
       </div>
 
       {files.length === 0 ? (
-        <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl p-12 text-center">
+        <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl p-12 text-center">
           <FolderOpen className="w-8 h-8 text-[#333] mx-auto mb-3" />
-          <p className="text-[#555] text-sm">No files have been shared yet.</p>
+          <p className="text-[#6B6B6B] text-sm">No files have been shared yet.</p>
         </div>
       ) : (
         <>
@@ -80,7 +80,7 @@ export default async function FilesPage() {
 
 function FileSection({ title, files }: { title: string; files: any[] }) {
   return (
-    <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl overflow-hidden">
+    <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl overflow-hidden">
       <div className="px-6 py-4 border-b border-[#1e1e1e]">
         <h2 className="font-display font-semibold text-white text-base">{title}</h2>
       </div>
@@ -97,23 +97,23 @@ function FileSection({ title, files }: { title: string; files: any[] }) {
                 <p className="font-medium text-white text-[13px] truncate">{file.name}</p>
                 <div className="flex items-center gap-3 mt-0.5">
                   {file.description && (
-                    <p className="text-[12px] text-[#555] truncate max-w-[300px]">{file.description}</p>
+                    <p className="text-[12px] text-[#6B6B6B] truncate max-w-[300px]">{file.description}</p>
                   )}
-                  <span className="text-[11px] text-[#444]">
+                  <span className="text-[11px] text-[#6B6B6B]">
                     {file.size ? formatFileSize(file.size) : '—'}
                   </span>
                 </div>
               </div>
               <div className="flex items-center gap-4 shrink-0">
                 <div className="text-right hidden sm:block">
-                  <p className="text-[11px] text-[#555]">{formatDate(file.createdAt)}</p>
-                  <p className="text-[11px] text-[#444]">{file.uploadedBy?.name || 'ATP Scales'}</p>
+                  <p className="text-[11px] text-[#6B6B6B]">{formatDate(file.createdAt)}</p>
+                  <p className="text-[11px] text-[#6B6B6B]">{file.uploadedBy?.name || 'ATP Scales'}</p>
                 </div>
                 <a
                   href={file.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-2 bg-[#1a1a1a] hover:bg-[#c8ff00]/10 hover:text-[#c8ff00] border border-[#1e1e1e] hover:border-[#c8ff00]/20 rounded-lg text-[12px] text-[#888] font-medium transition-all"
+                  className="flex items-center gap-1.5 px-3 py-2 bg-[#1a1a1a] hover:bg-[#c8ff00]/10 hover:text-[#c8ff00] border border-[#1e1e1e] hover:border-[#c8ff00]/20 rounded-lg text-[12px] text-[#B3B3B3] font-medium transition-all"
                 >
                   <Download className="w-3.5 h-3.5" />
                   Download

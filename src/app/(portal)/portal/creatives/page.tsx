@@ -33,7 +33,7 @@ export default async function CreativesPage() {
   }
 
   if (!clientProfileId) {
-    return <div className="text-[#555] text-sm p-4">No client data available.</div>
+    return <div className="text-[#6B6B6B] text-sm p-4">No client data available.</div>
   }
 
   const { rows, accountAvgCtr, totalImpressions, totalLeads, blendedCtr } =
@@ -54,15 +54,15 @@ export default async function CreativesPage() {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="font-display text-2xl font-bold text-[#EBEBEB] tracking-wide">Creatives</h1>
-          <p className="text-[#555] text-sm mt-1">Ad creative performance across all campaigns</p>
+          <h1 className="font-display text-2xl font-bold text-[#FFFFFF] tracking-wide">Creatives</h1>
+          <p className="text-[#6B6B6B] text-sm mt-1">Ad creative performance across all campaigns</p>
         </div>
         <div className="atp-card p-12 text-center">
-          <div className="w-12 h-12 bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.15)] rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <Image className="w-5 h-5 text-[#C9A84C]" />
+          <div className="w-12 h-12 bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.15)] rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <Image className="w-5 h-5 text-[#D4AF37]" />
           </div>
-          <p className="font-display font-bold text-[#EBEBEB] text-lg tracking-wide mb-2">No creatives yet</p>
-          <p className="text-[#555] text-sm max-w-xs mx-auto">Creative performance data will appear here once your ads are running.</p>
+          <p className="font-display font-bold text-[#FFFFFF] text-lg tracking-wide mb-2">No creatives yet</p>
+          <p className="text-[#6B6B6B] text-sm max-w-xs mx-auto">Creative performance data will appear here once your ads are running.</p>
         </div>
       </div>
     )
@@ -77,8 +77,8 @@ export default async function CreativesPage() {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="font-display text-2xl font-bold text-[#EBEBEB] tracking-wide">Creatives</h1>
-        <p className="text-[#555] text-sm mt-1">
+        <h1 className="font-display text-2xl font-bold text-[#FFFFFF] tracking-wide">Creatives</h1>
+        <p className="text-[#6B6B6B] text-sm mt-1">
           {rows.length} creatives across {campaigns.length} campaigns
         </p>
       </div>
@@ -91,8 +91,8 @@ export default async function CreativesPage() {
           { label: 'Total Leads',       value: formatNumber(totalLeads),              gold: true  },
         ].map(s => (
           <div key={s.label} className={s.gold ? 'atp-card-gold kpi-card' : 'kpi-card'}>
-            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#444] mb-1.5">{s.label}</p>
-            <p className={`font-display font-bold text-xl leading-none ${s.gold ? 'gold-text' : 'text-[#EBEBEB]'}`}>{s.value}</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#6B6B6B] mb-1.5">{s.label}</p>
+            <p className={`font-display font-bold text-xl leading-none ${s.gold ? 'gold-text' : 'text-[#FFFFFF]'}`}>{s.value}</p>
           </div>
         ))}
       </div>
@@ -101,7 +101,7 @@ export default async function CreativesPage() {
         <div key={group.label} className="space-y-3">
           <div className="flex items-center gap-2">
             <span className={`w-1.5 h-1.5 rounded-full ${STATUS_DOT[group.label.toUpperCase()] || 'bg-[#333]'}`} />
-            <h2 className="font-display font-bold text-[#EBEBEB] tracking-wide">{group.label}</h2>
+            <h2 className="font-display font-bold text-[#FFFFFF] tracking-wide">{group.label}</h2>
             <span className="text-[#333] text-[11px] font-bold">({group.items.length})</span>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -111,7 +111,7 @@ export default async function CreativesPage() {
               const TypeIcon = tCfg.icon
               return (
                 <div key={row.id} className="atp-card overflow-hidden flex flex-col">
-                  <div className="relative h-[140px] bg-[#0C0C0C] border-b border-[#1C1C1C] flex items-center justify-center overflow-hidden">
+                  <div className="relative h-[140px] bg-[#0C0C0C] border-b border-[#222222] flex items-center justify-center overflow-hidden">
                     <div className={`absolute inset-0 opacity-[0.04] ${
                       row.type === 'VIDEO'    ? 'bg-gradient-to-br from-purple-500 to-blue-500'
                       : row.type === 'CAROUSEL' ? 'bg-gradient-to-br from-amber-500 to-orange-500'
@@ -135,10 +135,10 @@ export default async function CreativesPage() {
                     </span>
                   </div>
                   <div className="p-4 flex flex-col flex-1">
-                    <p className="text-[13px] font-semibold text-[#EBEBEB] leading-snug line-clamp-2 mb-1">
+                    <p className="text-[13px] font-semibold text-[#FFFFFF] leading-snug line-clamp-2 mb-1">
                       {row.headline || row.name}
                     </p>
-                    <p className="text-[11px] text-[#444] truncate mb-4">{row.campaignName}</p>
+                    <p className="text-[11px] text-[#6B6B6B] truncate mb-4">{row.campaignName}</p>
                     <div className="grid grid-cols-4 gap-1 mt-auto">
                       {[
                         { label: 'CTR',   value: formatPercent(row.ctr, 2) },
@@ -148,7 +148,7 @@ export default async function CreativesPage() {
                       ].map(m => (
                         <div key={m.label} className="text-center">
                           <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-[#333] mb-0.5">{m.label}</p>
-                          <p className="text-[12px] font-bold text-[#EBEBEB]">{m.value}</p>
+                          <p className="text-[12px] font-bold text-[#FFFFFF]">{m.value}</p>
                         </div>
                       ))}
                     </div>
@@ -163,8 +163,8 @@ export default async function CreativesPage() {
       {/* Campaign summary table */}
       {campaigns.length > 1 && (
         <div className="atp-card overflow-hidden">
-          <div className="px-6 py-4 border-b border-[#1C1C1C]">
-            <h2 className="font-display font-bold text-[#EBEBEB] tracking-wide">By Campaign</h2>
+          <div className="px-6 py-4 border-b border-[#222222]">
+            <h2 className="font-display font-bold text-[#FFFFFF] tracking-wide">By Campaign</h2>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full data-table">
@@ -189,11 +189,11 @@ export default async function CreativesPage() {
                   return (
                     <tr key={camp.id}>
                       <td>
-                        <p className="text-[13px] font-semibold text-[#EBEBEB] max-w-[240px] truncate">{camp.name}</p>
+                        <p className="text-[13px] font-semibold text-[#FFFFFF] max-w-[240px] truncate">{camp.name}</p>
                         <p className="text-[10px] text-[#333] mt-0.5">{camp.platform}</p>
                       </td>
-                      <td className="text-right text-[#666]">{campCreatives.length}</td>
-                      <td className="text-right text-[#888]">{formatPercent(campAvgCtr, 2)}</td>
+                      <td className="text-right text-[#B3B3B3]">{campCreatives.length}</td>
+                      <td className="text-right text-[#B3B3B3]">{formatPercent(campAvgCtr, 2)}</td>
                       <td className="text-right font-semibold">{formatCurrency(campSpend)}</td>
                       <td className="text-right font-semibold text-[#D8D8D8]">{formatNumber(campLeads)}</td>
                       <td className="text-right">

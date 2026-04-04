@@ -15,7 +15,7 @@ export default function GlobalError({
 
   return (
     <html>
-      <body style={{ background: '#080808', display: 'flex', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
+      <body style={{ background: '#0A0A0A', display: 'flex', minHeight: '100vh', alignItems: 'center', justifyContent: 'center' }}>
         <div style={{ textAlign: 'center' }}>
           <p style={{ color: '#555', fontSize: '14px', marginBottom: '16px' }}>Something went wrong.</p>
           <button

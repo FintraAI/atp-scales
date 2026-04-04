@@ -29,8 +29,8 @@ export default async function AdminUsersPage() {
     <div className="space-y-6 max-w-5xl">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="font-display text-2xl font-bold text-[#EBEBEB] tracking-wide">Team & Users</h1>
-          <p className="text-[#555] text-sm mt-1">{users.length} total users across all roles</p>
+          <h1 className="font-display text-2xl font-bold text-[#FFFFFF] tracking-wide">Team & Users</h1>
+          <p className="text-[#6B6B6B] text-sm mt-1">{users.length} total users across all roles</p>
         </div>
         <button className="btn-gold text-sm gap-2">
           <Plus className="w-4 h-4" /> Invite User
@@ -45,7 +45,7 @@ export default async function AdminUsersPage() {
           { role: 'CLIENT',       label: 'Clients',      count: users.filter(u => u.role === 'CLIENT').length      },
         ].map(r => (
           <div key={r.role} className="atp-card p-4">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#444] mb-1.5">{r.label}</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-[#6B6B6B] mb-1.5">{r.label}</p>
             <p className="font-display font-bold text-2xl gold-text">{r.count}</p>
           </div>
         ))}
@@ -72,29 +72,29 @@ export default async function AdminUsersPage() {
                   <tr key={user.id}>
                     <td>
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.12)] flex items-center justify-center shrink-0">
-                          <span className="text-[11px] font-bold text-[#C9A84C]">
+                        <div className="w-8 h-8 rounded-full bg-[rgba(212,175,55,0.08)] border border-[rgba(212,175,55,0.12)] flex items-center justify-center shrink-0">
+                          <span className="text-[11px] font-bold text-[#D4AF37]">
                             {user.name?.[0]?.toUpperCase() || user.email[0].toUpperCase()}
                           </span>
                         </div>
                         <div>
-                          <p className="font-semibold text-[#EBEBEB] text-[13px]">{user.name || '—'}</p>
-                          <p className="text-[11px] text-[#555]">{user.email}</p>
+                          <p className="font-semibold text-[#FFFFFF] text-[13px]">{user.name || '—'}</p>
+                          <p className="text-[11px] text-[#6B6B6B]">{user.email}</p>
                         </div>
                       </div>
                     </td>
                     <td><span className={roleCfg.color}>{roleCfg.label}</span></td>
-                    <td className="text-[#888] text-[12px]">
+                    <td className="text-[#B3B3B3] text-[12px]">
                       {user.clientProfile?.companyName || '—'}
                     </td>
-                    <td className="text-[#555] text-[12px]">
+                    <td className="text-[#6B6B6B] text-[12px]">
                       {user.lastLoginAt ? formatRelativeTime(user.lastLoginAt) : 'Never'}
                     </td>
-                    <td className="text-[#555] text-[12px]">{formatDate(user.createdAt)}</td>
+                    <td className="text-[#6B6B6B] text-[12px]">{formatDate(user.createdAt)}</td>
                     <td>
                       {user.isActive
                         ? <span className="flex items-center gap-1.5 text-emerald-400 text-[12px] font-semibold"><CheckCircle className="w-3.5 h-3.5" /> Active</span>
-                        : <span className="flex items-center gap-1.5 text-[#444] text-[12px] font-semibold"><XCircle className="w-3.5 h-3.5" /> Inactive</span>
+                        : <span className="flex items-center gap-1.5 text-[#6B6B6B] text-[12px] font-semibold"><XCircle className="w-3.5 h-3.5" /> Inactive</span>
                       }
                     </td>
                   </tr>

@@ -1,12 +1,8 @@
 {
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/(public)/terms/page": "app/(public)/terms/page.js",
   "/(public)/page": "app/(public)/page.js",
+  "/(public)/contact/page": "app/(public)/contact/page.js",
   "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(portal)/portal/dashboard/page": "app/(portal)/portal/dashboard/page.js",
-  "/(portal)/portal/profile/page": "app/(portal)/portal/profile/page.js",
-  "/(portal)/portal/admin/clients/page": "app/(portal)/portal/admin/clients/page.js",
-  "/(portal)/portal/admin/users/page": "app/(portal)/portal/admin/users/page.js",
-  "/(portal)/portal/campaigns/page": "app/(portal)/portal/campaigns/page.js",
-  "/(portal)/portal/creatives/page": "app/(portal)/portal/creatives/page.js",
-  "/(portal)/portal/updates/page": "app/(portal)/portal/updates/page.js"
+  "/(public)/pricing/page": "app/(public)/pricing/page.js"
 }

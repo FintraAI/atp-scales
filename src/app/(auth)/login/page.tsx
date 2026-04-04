@@ -42,14 +42,14 @@ function LoginForm() {
   }
 
   return (
-    <div className="min-h-screen bg-[#060606] flex items-center justify-center px-4">
+    <div className="min-h-screen bg-[#050505] flex items-center justify-center px-4">
       <div
         className="fixed inset-0 pointer-events-none"
         style={{ backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40' fill='none' stroke='rgb(255 255 255 / 0.025)'%3e%3cpath d='M0 .5H39.5V40'/%3e%3c/svg%3e\")" }}
       />
       <div
         className="fixed top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at center top, rgba(201,168,76,0.06), transparent)' }}
+        style={{ background: 'radial-gradient(ellipse at center top, rgba(212,175,55,0.06), transparent)' }}
       />
 
       <div className="relative w-full max-w-[400px] animate-fade-in">
@@ -57,10 +57,10 @@ function LoginForm() {
           <Link href="/">
             <AtpLogo size="lg" className="mx-auto" />
           </Link>
-          <p className="text-[#444] text-sm mt-5 tracking-wide">Client Portal Access</p>
+          <p className="text-[#6B6B6B] text-sm mt-5 tracking-wide">Client Portal Access</p>
         </div>
 
-        <div className="bg-[#111] border border-[#1C1C1C] rounded-2xl p-7">
+        <div className="bg-[#0F0F0F] border border-[#222222] rounded-2xl p-7">
           {error && (
             <div className="mb-5 bg-red-500/5 border border-red-500/15 rounded-xl px-4 py-3 text-red-400 text-sm">
               {error}
@@ -69,7 +69,7 @@ function LoginForm() {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-[#444] mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B] mb-2">
                 Email Address
               </label>
               <input
@@ -80,7 +80,7 @@ function LoginForm() {
             </div>
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-[#444] mb-2">
+              <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-[#6B6B6B] mb-2">
                 Password
               </label>
               <div className="relative">
@@ -91,7 +91,7 @@ function LoginForm() {
                   className="atp-input pr-10"
                 />
                 <button type="button" onClick={() => setShowPass(!showPass)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#444] hover:text-[#888] transition-colors">
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6B6B6B] hover:text-[#B3B3B3] transition-colors">
                   {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
@@ -112,7 +112,7 @@ function LoginForm() {
             </button>
           </form>
 
-          <div className="mt-6 pt-5 border-t border-[#1C1C1C]">
+          <div className="mt-6 pt-5 border-t border-[#222222]">
             <p className="text-[#333] text-[10px] text-center uppercase tracking-[0.15em] mb-3">Demo Credentials</p>
             <div className="space-y-2">
               {[
@@ -122,9 +122,9 @@ function LoginForm() {
               ].map((cred) => (
                 <button key={cred.email} type="button"
                   onClick={() => { setEmail(cred.email); setPassword('ATPScales2024!') }}
-                  className="w-full flex items-center justify-between px-3 py-2.5 bg-[#0C0C0C] hover:bg-[rgba(201,168,76,0.04)] border border-[#1C1C1C] hover:border-[rgba(201,168,76,0.15)] rounded-xl transition-all group">
-                  <span className="text-[12px] text-[#555] group-hover:text-[#888]">{cred.label}</span>
-                  <span className="text-[11px] text-[#333] group-hover:text-[#C9A84C] font-mono">{cred.email}</span>
+                  className="w-full flex items-center justify-between px-3 py-2.5 bg-[#0C0C0C] hover:bg-[rgba(212,175,55,0.04)] border border-[#222222] hover:border-[rgba(212,175,55,0.15)] rounded-xl transition-all group">
+                  <span className="text-[12px] text-[#6B6B6B] group-hover:text-[#B3B3B3]">{cred.label}</span>
+                  <span className="text-[11px] text-[#333] group-hover:text-[#D4AF37] font-mono">{cred.email}</span>
                 </button>
               ))}
               <p className="text-center text-[#2A2A2A] text-[10px] mt-1.5 font-mono">Password: ATPScales2024!</p>
@@ -134,7 +134,7 @@ function LoginForm() {
 
         <p className="text-center text-[#2A2A2A] text-xs mt-5">
           Not a client?{' '}
-          <Link href="/contact" className="text-[#C9A84C] hover:text-[#E2C06A] transition-colors">
+          <Link href="/contact" className="text-[#D4AF37] hover:text-[#E6C65C] transition-colors">
             Book a strategy call →
           </Link>
         </p>

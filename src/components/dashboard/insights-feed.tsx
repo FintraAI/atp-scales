@@ -11,7 +11,7 @@ const CONFIG = {
   winning:  { icon: TrendingUp,    color: 'text-emerald-400', bg: 'bg-emerald-400/[0.07]', border: 'border-emerald-400/20' },
   warning:  { icon: AlertTriangle, color: 'text-amber-400',   bg: 'bg-amber-400/[0.07]',   border: 'border-amber-400/20'   },
   critical: { icon: WifiOff,       color: 'text-red-400',     bg: 'bg-red-400/[0.07]',     border: 'border-red-400/20'     },
-  info:     { icon: TrendingDown,  color: 'text-[#666]',      bg: 'bg-[#111]',             border: 'border-[#1C1C1C]'      },
+  info:     { icon: TrendingDown,  color: 'text-[#B3B3B3]',      bg: 'bg-[#0F0F0F]',             border: 'border-[#222222]'      },
 }
 
 export function InsightsFeed({ insights }: { insights: Insight[] }) {
@@ -20,7 +20,7 @@ export function InsightsFeed({ insights }: { insights: Insight[] }) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h2 className="font-display font-bold text-[#EBEBEB] tracking-wide text-lg">Insights</h2>
+        <h2 className="font-display font-bold text-[#FFFFFF] tracking-wide text-lg">Insights</h2>
         <span className="text-[10px] text-[#333] font-bold uppercase tracking-[0.12em]">
           {insights.length} {insights.length === 1 ? 'alert' : 'alerts'}
         </span>
@@ -36,7 +36,7 @@ export function InsightsFeed({ insights }: { insights: Insight[] }) {
               </div>
               <div className="min-w-0">
                 <p className={`text-[13px] font-semibold leading-snug ${cfg.color}`}>{ins.title}</p>
-                <p className="text-[12px] text-[#555] mt-0.5 leading-relaxed">{ins.description}</p>
+                <p className="text-[12px] text-[#6B6B6B] mt-0.5 leading-relaxed">{ins.description}</p>
               </div>
             </div>
           )

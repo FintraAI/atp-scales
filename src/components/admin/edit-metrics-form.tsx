@@ -71,7 +71,7 @@ export function EditMetricsForm({ clientProfileId }: { clientProfileId: string }
   }
 
   return (
-    <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl overflow-hidden">
+    <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 hover:bg-white/[0.02] transition-colors"
@@ -80,13 +80,13 @@ export function EditMetricsForm({ clientProfileId }: { clientProfileId: string }
           <BarChart2 className="w-4 h-4 text-[#c8ff00]" />
           <span className="font-display font-semibold text-white text-sm">Enter Daily Metrics</span>
         </div>
-        <span className="text-[#555] text-xs">{open ? '▲ Close' : '▼ Open'}</span>
+        <span className="text-[#6B6B6B] text-xs">{open ? '▲ Close' : '▼ Open'}</span>
       </button>
 
       {open && (
         <form onSubmit={handleSubmit} className="px-5 pb-5 space-y-4 border-t border-[#1e1e1e]">
           <div className="pt-4">
-            <label className="text-[11px] text-[#555] uppercase tracking-wider mb-1.5 block">Date</label>
+            <label className="text-[11px] text-[#6B6B6B] uppercase tracking-wider mb-1.5 block">Date</label>
             <input type="date" value={form.date} onChange={set('date')}
               className="bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-[#c8ff00]/30 w-40" />
           </div>
@@ -101,7 +101,7 @@ export function EditMetricsForm({ clientProfileId }: { clientProfileId: string }
               { k: 'clicks', label: 'Clicks', placeholder: '0' },
             ].map(({ k, label, placeholder }) => (
               <div key={k}>
-                <label className="text-[11px] text-[#555] uppercase tracking-wider mb-1.5 block">{label}</label>
+                <label className="text-[11px] text-[#6B6B6B] uppercase tracking-wider mb-1.5 block">{label}</label>
                 <input
                   type="number" step="any" min="0"
                   value={form[k as keyof typeof form]}

@@ -40,11 +40,11 @@ export default async function ProfilePage() {
           <div
             className="w-14 h-14 rounded-2xl flex items-center justify-center"
             style={{
-              background: 'rgba(201,168,76,0.10)',
-              border: '1px solid rgba(201,168,76,0.20)',
+              background: 'rgba(212,175,55,0.10)',
+              border: '1px solid rgba(212,175,55,0.20)',
             }}
           >
-            <span className="font-display font-bold text-xl text-[#C9A84C]">
+            <span className="font-display font-bold text-xl text-[#D4AF37]">
               {session.user.name?.[0]?.toUpperCase() || 'U'}
             </span>
           </div>
@@ -61,7 +61,7 @@ export default async function ProfilePage() {
         style={{ background: 'var(--card-elevated)', border: '1px solid var(--border)' }}
       >
         <h2 className="font-display font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-          <Palette className="w-4 h-4 text-[#C9A84C]" /> Appearance
+          <Palette className="w-4 h-4 text-[#D4AF37]" /> Appearance
         </h2>
         <div className="flex items-center justify-between">
           <div>
@@ -80,7 +80,7 @@ export default async function ProfilePage() {
             style={{ background: 'var(--card-elevated)', border: '1px solid var(--border)' }}
           >
             <h2 className="font-display font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-              <Building2 className="w-4 h-4 text-[#C9A84C]" /> Company
+              <Building2 className="w-4 h-4 text-[#D4AF37]" /> Company
             </h2>
             <div className="space-y-3">
               <InfoRow icon={Building2} label="Company" value={profile.companyName} />
@@ -98,15 +98,15 @@ export default async function ProfilePage() {
             style={{ background: 'var(--card-elevated)', border: '1px solid var(--border)' }}
           >
             <h2 className="font-display font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-              <CreditCard className="w-4 h-4 text-[#C9A84C]" /> Current Plan
+              <CreditCard className="w-4 h-4 text-[#D4AF37]" /> Current Plan
             </h2>
             {profile.plan ? (
               <div className="space-y-3">
                 <div
                   className="flex items-center justify-between p-4 rounded-xl"
                   style={{
-                    background: 'rgba(201,168,76,0.05)',
-                    border: '1px solid rgba(201,168,76,0.12)',
+                    background: 'rgba(212,175,55,0.05)',
+                    border: '1px solid rgba(212,175,55,0.12)',
                   }}
                 >
                   <div>
@@ -115,7 +115,7 @@ export default async function ProfilePage() {
                   </div>
                   {profile.plan.priceMonthly && (
                     <div className="text-right">
-                      <p className="font-display font-bold text-lg text-[#C9A84C]">
+                      <p className="font-display font-bold text-lg text-[#D4AF37]">
                         {formatCurrency(Number(profile.plan.priceMonthly))}
                       </p>
                       <p className="text-[11px]" style={{ color: 'var(--text-muted)' }}>/ month</p>
@@ -126,7 +126,7 @@ export default async function ProfilePage() {
                   <ul className="space-y-1.5 mt-3">
                     {(profile.plan.features as string[]).map((feat) => (
                       <li key={feat} className="flex items-center gap-2 text-[13px]" style={{ color: 'var(--text-secondary)' }}>
-                        <span className="text-[#C9A84C] text-[10px]">✓</span>
+                        <span className="text-[#D4AF37] text-[10px]">✓</span>
                         {feat}
                       </li>
                     ))}
@@ -145,7 +145,7 @@ export default async function ProfilePage() {
               style={{ background: 'var(--card-elevated)', border: '1px solid var(--border)' }}
             >
               <h2 className="font-display font-semibold text-sm mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-                <User className="w-4 h-4 text-[#C9A84C]" /> Your Account Manager
+                <User className="w-4 h-4 text-[#D4AF37]" /> Your Account Manager
               </h2>
               <div className="flex items-center gap-3">
                 <div
@@ -160,7 +160,7 @@ export default async function ProfilePage() {
                   <p className="font-medium text-[13px]" style={{ color: 'var(--text-primary)' }}>{profile.accountManager.name}</p>
                   <a
                     href={`mailto:${profile.accountManager.email}`}
-                    className="text-[12px] text-[#C9A84C] hover:underline"
+                    className="text-[12px] text-[#D4AF37] hover:underline"
                   >
                     {profile.accountManager.email}
                   </a>
@@ -184,7 +184,7 @@ function InfoRow({ icon: Icon, label, value, href }: {
         <span className="text-[12px]" style={{ color: 'var(--text-muted)' }}>{label}</span>
       </div>
       {href ? (
-        <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#C9A84C] hover:underline">
+        <a href={href} target="_blank" rel="noopener noreferrer" className="text-[13px] text-[#D4AF37] hover:underline">
           {value}
         </a>
       ) : (

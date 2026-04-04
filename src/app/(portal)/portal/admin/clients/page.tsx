@@ -45,7 +45,7 @@ export default async function AdminClientsPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-display text-2xl font-bold text-white">Clients</h1>
-          <p className="text-[#888] text-sm mt-1">{clients.length} total clients</p>
+          <p className="text-[#B3B3B3] text-sm mt-1">{clients.length} total clients</p>
         </div>
         <Link
           href="/portal/admin/clients/new"
@@ -64,15 +64,15 @@ export default async function AdminClientsPage() {
           { label: 'Onboarding', value: clients.filter((c) => c.status === 'ONBOARDING').length, color: 'text-purple-400' },
           { label: 'Needs Attention', value: clients.filter((c) => c.performanceStatus === 'NEEDS_ATTENTION' || c.performanceStatus === 'CRITICAL').length, color: 'text-amber-400' },
         ].map((s) => (
-          <div key={s.label} className="bg-[#141414] border border-[#1e1e1e] rounded-xl px-4 py-3">
-            <p className="text-[11px] text-[#555] uppercase tracking-wider mb-1">{s.label}</p>
+          <div key={s.label} className="bg-[#181818] border border-[#1e1e1e] rounded-xl px-4 py-3">
+            <p className="text-[11px] text-[#6B6B6B] uppercase tracking-wider mb-1">{s.label}</p>
             <p className={`font-display font-bold text-xl ${s.color}`}>{s.value}</p>
           </div>
         ))}
       </div>
 
       {/* Client table */}
-      <div className="bg-[#141414] border border-[#1e1e1e] rounded-2xl overflow-hidden">
+      <div className="bg-[#181818] border border-[#1e1e1e] rounded-2xl overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full data-table">
             <thead>
@@ -99,11 +99,11 @@ export default async function AdminClientsPage() {
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-[#1e1e1e] rounded-lg flex items-center justify-center shrink-0">
-                          <span className="text-xs font-bold text-[#888]">{client.companyName[0]}</span>
+                          <span className="text-xs font-bold text-[#B3B3B3]">{client.companyName[0]}</span>
                         </div>
                         <div>
                           <p className="font-medium text-white text-[13px]">{client.companyName}</p>
-                          <p className="text-[11px] text-[#555]">{client.user.email}</p>
+                          <p className="text-[11px] text-[#6B6B6B]">{client.user.email}</p>
                         </div>
                         {client._count.updates > 0 && (
                           <span className="text-[10px] bg-[#c8ff00] text-black font-bold px-1.5 py-0.5 rounded-full">
@@ -113,10 +113,10 @@ export default async function AdminClientsPage() {
                       </div>
                     </td>
                     <td>
-                      <span className="text-[12px] text-[#888]">{client.plan?.name || '—'}</span>
+                      <span className="text-[12px] text-[#B3B3B3]">{client.plan?.name || '—'}</span>
                     </td>
                     <td>
-                      <span className="text-[12px] text-[#888]">{client.accountManager?.name || '—'}</span>
+                      <span className="text-[12px] text-[#B3B3B3]">{client.accountManager?.name || '—'}</span>
                     </td>
                     <td className="text-right">
                       <span className="text-[13px] font-medium">{formatCurrency(client.totals.spend, true)}</span>
@@ -141,7 +141,7 @@ export default async function AdminClientsPage() {
                       </span>
                     </td>
                     <td>
-                      <Link href={`/portal/admin/clients/${client.id}`} className="text-[#555] hover:text-[#c8ff00] transition-colors">
+                      <Link href={`/portal/admin/clients/${client.id}`} className="text-[#6B6B6B] hover:text-[#c8ff00] transition-colors">
                         <ChevronRight className="w-4 h-4" />
                       </Link>
                     </td>
