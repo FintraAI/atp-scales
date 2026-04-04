@@ -4,11 +4,6 @@
 
 import { prisma }             from '@/lib/prisma'
 import { getProvider }        from '@/lib/providers'
-<<<<<<< HEAD
-import { computeTrendChange } from '@/lib/metrics'
-import { subDays, startOfDay } from 'date-fns'
-import type { KPIData, ChartDataPoint, CampaignRow, ClientUpdateItem } from '@/types'
-=======
 import { computeTrendChange, computeCPL, computeCTR, computeCPC } from '@/lib/metrics'
 import { subDays, startOfDay, format } from 'date-fns'
 import { getClientBreakdownData, getAdminBreakdownData } from '@/lib/services/breakdown.service'
@@ -17,18 +12,10 @@ import type {
   AudienceBreakdown, HourlyPerformanceRow, CreativeAssetRow,
   ConversionActionRow, ClientComparisonRow,
 } from '@/types'
->>>>>>> dashboard-refactor
 
 // ─── Client dashboard ─────────────────────────────────────────────────────────
 
 export interface ClientDashboardData {
-<<<<<<< HEAD
-  kpis:         KPIData
-  chartData:    ChartDataPoint[]
-  campaignRows: CampaignRow[]
-  updates:      ClientUpdateItem[]
-  profile:      { companyName: string; performanceStatus: string; status: string } | null
-=======
   kpis:            KPIData
   chartData:       ChartDataPoint[]
   campaignRows:    CampaignRow[]
@@ -39,24 +26,11 @@ export interface ClientDashboardData {
   hourlyPerformance:  HourlyPerformanceRow[]
   creativeInsights:   CreativeAssetRow[]
   conversionInsights: ConversionActionRow[]
->>>>>>> dashboard-refactor
 }
 
 export async function getClientDashboardData(
   clientProfileId: string
 ): Promise<ClientDashboardData> {
-<<<<<<< HEAD
-  const now          = new Date()
-  const thirtyDaysAgo = startOfDay(subDays(now, 30))
-  const sixtyDaysAgo  = startOfDay(subDays(now, 60))
-
-  const provider = await getProvider(clientProfileId)
-
-  const [metrics, timeSeries, campaignRows] = await Promise.all([
-    provider.getDashboardMetrics(clientProfileId, { from: thirtyDaysAgo, to: now }),
-    provider.getTimeSeries(clientProfileId, { from: thirtyDaysAgo, to: now }),
-    provider.getCampaignRows(clientProfileId, { from: thirtyDaysAgo, to: now }),
-=======
   const now            = new Date()
   const thirtyDaysAgo  = startOfDay(subDays(now, 30))
 
@@ -67,7 +41,6 @@ export async function getClientDashboardData(
     provider.getTimeSeries(clientProfileId, { from: thirtyDaysAgo, to: now }),
     provider.getCampaignRows(clientProfileId, { from: thirtyDaysAgo, to: now }),
     getClientBreakdownData(clientProfileId),
->>>>>>> dashboard-refactor
   ])
 
   const kpis: KPIData = {
@@ -94,16 +67,10 @@ export async function getClientDashboardData(
     appointments: p.appointments,
     clicks:       p.clicks,
     impressions:  p.impressions,
-<<<<<<< HEAD
-  }))
-
-  // Updates and profile come from DB regardless of provider
-=======
     cpl:          p.leads > 0 ? p.spend / p.leads : 0,
     ctr:          p.impressions > 0 ? p.clicks / p.impressions : 0,
   }))
 
->>>>>>> dashboard-refactor
   const [updates, profile] = await Promise.all([
     prisma.clientUpdate.findMany({
       where:   { clientProfileId },
@@ -123,35 +90,18 @@ export async function getClientDashboardData(
     campaignRows,
     updates: updates as ClientUpdateItem[],
     profile: profile
-<<<<<<< HEAD
-      ? {
-          companyName:       profile.companyName,
-          performanceStatus: profile.performanceStatus,
-          status:            profile.status,
-        }
-      : null,
-=======
       ? { companyName: profile.companyName, performanceStatus: profile.performanceStatus, status: profile.status }
       : null,
     audienceBreakdown:  breakdown.audience,
     hourlyPerformance:  breakdown.hourly,
     creativeInsights:   breakdown.creatives,
     conversionInsights: breakdown.conversions,
->>>>>>> dashboard-refactor
   }
 }
 
 // ─── Admin dashboard ──────────────────────────────────────────────────────────
 
 export interface AdminDashboardData {
-<<<<<<< HEAD
-  clients:       Awaited<ReturnType<typeof fetchAdminClients>>
-  totalClients:  number
-  activeClients: number
-  totalAdSpend:  number
-  totalRevenue:  number
-  totalLeads:    number
-=======
   clients:            Awaited<ReturnType<typeof fetchAdminClients>>
   totalClients:       number
   activeClients:      number
@@ -170,7 +120,6 @@ export interface AdminDashboardData {
   audienceBreakdown:  AudienceBreakdown
   hourlyPerformance:  HourlyPerformanceRow[]
   conversionInsights: ConversionActionRow[]
->>>>>>> dashboard-refactor
 }
 
 async function fetchAdminClients() {
@@ -179,18 +128,12 @@ async function fetchAdminClients() {
       user:           { select: { name: true, email: true } },
       plan:           { select: { name: true } },
       accountManager: { select: { name: true } },
-<<<<<<< HEAD
-      _count:         { select: { updates: { where: { isRead: false } } } },
-=======
       _count:         { select: { updates: { where: { isRead: false } }, campaigns: true } },
->>>>>>> dashboard-refactor
     },
     orderBy: { createdAt: 'desc' },
   })
 }
 
-<<<<<<< HEAD
-=======
 async function buildAdminTrends(thirtyDaysAgo: Date): Promise<ChartDataPoint[]> {
   const snapshots = await prisma.metricSnapshot.findMany({
     where:   { date: { gte: thirtyDaysAgo } },
@@ -282,7 +225,6 @@ async function buildClientComparison(
     .sort((a, b) => b.spend - a.spend)
 }
 
->>>>>>> dashboard-refactor
 export async function getAdminDashboardData(): Promise<AdminDashboardData> {
   const thirtyDaysAgo = startOfDay(subDays(new Date(), 30))
 
@@ -290,19 +232,6 @@ export async function getAdminDashboardData(): Promise<AdminDashboardData> {
     fetchAdminClients(),
     prisma.metricSnapshot.aggregate({
       where: { date: { gte: thirtyDaysAgo } },
-<<<<<<< HEAD
-      _sum:  { adSpend: true, revenue: true, leads: true },
-    }),
-  ])
-
-  return {
-    clients,
-    totalClients:  clients.length,
-    activeClients: clients.filter(c => c.status === 'ACTIVE').length,
-    totalAdSpend:  Number(metrics._sum.adSpend  || 0),
-    totalRevenue:  Number(metrics._sum.revenue  || 0),
-    totalLeads:    metrics._sum.leads            || 0,
-=======
       _sum:  { adSpend: true, revenue: true, leads: true, impressions: true, clicks: true },
     }),
   ])
@@ -336,7 +265,6 @@ export async function getAdminDashboardData(): Promise<AdminDashboardData> {
     audienceBreakdown:  breakdown.audience,
     hourlyPerformance:  breakdown.hourly,
     conversionInsights: breakdown.conversions,
->>>>>>> dashboard-refactor
   }
 }
 
@@ -368,15 +296,9 @@ function buildAnalyticsTotals(snapshots: {
 }
 
 export async function getAnalyticsData(clientProfileId: string): Promise<AnalyticsData> {
-<<<<<<< HEAD
-  const now           = new Date()
-  const thirtyDaysAgo = startOfDay(subDays(now, 30))
-  const ninetyDaysAgo = startOfDay(subDays(now, 90))
-=======
   const now            = new Date()
   const thirtyDaysAgo  = startOfDay(subDays(now, 30))
   const ninetyDaysAgo  = startOfDay(subDays(now, 90))
->>>>>>> dashboard-refactor
 
   const provider = await getProvider(clientProfileId)
 
@@ -400,11 +322,8 @@ export async function getAnalyticsData(clientProfileId: string): Promise<Analyti
       appointments: p.appointments,
       clicks:       p.clicks,
       impressions:  p.impressions,
-<<<<<<< HEAD
-=======
       cpl:          p.leads > 0 ? p.spend / p.leads : 0,
       ctr:          p.impressions > 0 ? p.clicks / p.impressions : 0,
->>>>>>> dashboard-refactor
     }))
 
   return {

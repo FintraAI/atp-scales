@@ -191,10 +191,7 @@ model ClientProfile {
   files            ClientFile[]
   integrations     ClientIntegration[]
   adPlatformData   AdPlatformData[]
-<<<<<<< HEAD
-=======
   metaBreakdowns   MetaBreakdownRow[]
->>>>>>> dashboard-refactor
   stripeData       StripeData[]
   calendlyData     CalendlyData[]
 
@@ -528,8 +525,6 @@ model CalendlyData {
 }
 
 // ─────────────────────────────────────────────
-<<<<<<< HEAD
-=======
 // META BREAKDOWN DATA
 // Stores normalized Meta API breakdown rows (age, gender, country, hourly, asset, action).
 // Populated by syncClientMetaData() when live API credentials are connected.
@@ -566,7 +561,6 @@ model MetaBreakdownRow {
 }
 
 // ─────────────────────────────────────────────
->>>>>>> dashboard-refactor
 // AUDIT LOG
 // ─────────────────────────────────────────────
 

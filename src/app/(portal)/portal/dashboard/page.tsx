@@ -1,17 +1,5 @@
 // src/app/(portal)/portal/dashboard/page.tsx
 
-<<<<<<< HEAD
-import { getServerSession } from 'next-auth'
-import { authOptions }      from '@/lib/auth'
-import { redirect }         from 'next/navigation'
-import { KPICards }         from '@/components/dashboard/kpi-cards'
-import { PerformanceCharts } from '@/components/dashboard/performance-charts'
-import { CampaignTable }    from '@/components/dashboard/campaign-table'
-import { RecentUpdates }    from '@/components/dashboard/recent-updates'
-import { AdminOverview }    from '@/components/dashboard/admin-overview'
-import { InsightsFeed }     from '@/components/dashboard/insights-feed'
-import { computeInsights }  from '@/lib/metrics'
-=======
 import { getServerSession }     from 'next-auth'
 import { authOptions }          from '@/lib/auth'
 import { redirect }             from 'next/navigation'
@@ -26,7 +14,6 @@ import { HourlyPerformance }    from '@/components/dashboard/hourly-performance'
 import { CreativeInsights }     from '@/components/dashboard/creative-insights'
 import { ConversionInsights }   from '@/components/dashboard/conversion-insights'
 import { computeInsights }      from '@/lib/metrics'
->>>>>>> dashboard-refactor
 import {
   getClientDashboardData,
   getAdminDashboardData,
@@ -55,12 +42,8 @@ export default async function DashboardPage() {
   const insights = computeInsights(data.campaignRows)
 
   return (
-<<<<<<< HEAD
-    <div className="space-y-8">
-=======
     <div className="space-y-10">
 
->>>>>>> dashboard-refactor
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -74,13 +57,6 @@ export default async function DashboardPage() {
         )}
       </div>
 
-<<<<<<< HEAD
-      <KPICards kpis={data.kpis} />
-      <PerformanceCharts chartData={data.chartData} />
-      {insights.length > 0 && <InsightsFeed insights={insights} />}
-      <CampaignTable campaigns={data.campaignRows} />
-      <RecentUpdates updates={data.updates} />
-=======
       {/* KPI Cards */}
       <KPICards kpis={data.kpis} />
 
@@ -108,7 +84,6 @@ export default async function DashboardPage() {
       {/* Recent Updates */}
       <RecentUpdates updates={data.updates} />
 
->>>>>>> dashboard-refactor
     </div>
   )
 }

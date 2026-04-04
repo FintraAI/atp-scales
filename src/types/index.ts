@@ -41,11 +41,8 @@ export interface ChartDataPoint {
   appointments?: number
   clicks?: number
   impressions?: number
-<<<<<<< HEAD
-=======
   cpl?: number
   ctr?: number
->>>>>>> dashboard-refactor
 }
 
 // ─── Client ───────────────────────────────────────────────────────────────────
@@ -165,8 +162,6 @@ export interface AdminUserRow {
   clientProfile?: { companyName: string } | null
 }
 
-<<<<<<< HEAD
-=======
 // ─── Breakdown / Audience Types ───────────────────────────────────────────────
 
 export interface AudienceAgeRow {
@@ -259,7 +254,6 @@ export interface ClientComparisonRow {
   campaigns: number
 }
 
->>>>>>> dashboard-refactor
 // ─── Utilities ────────────────────────────────────────────────────────────────
 
 export type DateRange = {
