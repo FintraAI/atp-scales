@@ -5,15 +5,15 @@
       "static/chunks/main-app.js",
       "static/chunks/app/global-error.js"
     ],
-    "/(public)/terms/page": [
+    "/(portal)/portal/dashboard/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(public)/terms/page.js"
+      "static/chunks/app/(portal)/portal/dashboard/page.js"
     ],
-    "/(public)/layout": [
+    "/(portal)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(public)/layout.js"
+      "static/chunks/app/(portal)/layout.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -31,15 +31,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(public)/page.js"
     ],
-    "/(public)/privacy/page": [
+    "/(public)/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(public)/privacy/page.js"
-    ],
-    "/(public)/contact/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(public)/contact/page.js"
+      "static/chunks/app/(public)/layout.js"
     ],
     "/(auth)/login/page": [
       "static/chunks/webpack.js",
@@ -51,10 +46,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/(auth)/layout.js"
     ],
-    "/(public)/pricing/page": [
+    "/(portal)/portal/updates/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(public)/pricing/page.js"
+      "static/chunks/app/(portal)/portal/updates/page.js"
+    ],
+    "/(portal)/portal/creatives/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(portal)/portal/creatives/page.js"
+    ],
+    "/(portal)/portal/campaigns/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(portal)/portal/campaigns/page.js"
+    ],
+    "/(portal)/portal/reports/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(portal)/portal/reports/page.js"
+    ],
+    "/(portal)/portal/files/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(portal)/portal/files/page.js"
+    ],
+    "/(portal)/portal/profile/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(portal)/portal/profile/page.js"
     ]
   }
 }

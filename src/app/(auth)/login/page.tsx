@@ -112,6 +112,7 @@ function LoginForm() {
             </button>
           </form>
 
+<<<<<<< HEAD
           <div className="mt-6 pt-5 border-t border-[#222222]">
             <p className="text-[#333] text-[10px] text-center uppercase tracking-[0.15em] mb-3">Demo Credentials</p>
             <div className="space-y-2">
@@ -130,6 +131,8 @@ function LoginForm() {
               <p className="text-center text-[#2A2A2A] text-[10px] mt-1.5 font-mono">Password: ATPScales2024!</p>
             </div>
           </div>
+=======
+>>>>>>> dashboard-refactor
         </div>
 
         <p className="text-center text-[#2A2A2A] text-xs mt-5">

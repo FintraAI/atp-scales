@@ -41,6 +41,11 @@ export interface ChartDataPoint {
   appointments?: number
   clicks?: number
   impressions?: number
+<<<<<<< HEAD
+=======
+  cpl?: number
+  ctr?: number
+>>>>>>> dashboard-refactor
 }
 
 // ─── Client ───────────────────────────────────────────────────────────────────
@@ -160,6 +165,101 @@ export interface AdminUserRow {
   clientProfile?: { companyName: string } | null
 }
 
+<<<<<<< HEAD
+=======
+// ─── Breakdown / Audience Types ───────────────────────────────────────────────
+
+export interface AudienceAgeRow {
+  ageRange: string   // '18-24', '25-34', '35-44', '45-54', '55-64', '65+'
+  impressions: number
+  clicks: number
+  spend: number
+  leads: number
+  ctr: number
+  cpl: number
+  share: number      // % of total spend
+}
+
+export interface AudienceGenderRow {
+  gender: 'male' | 'female' | 'unknown'
+  label: string      // 'Male', 'Female', 'Unknown'
+  impressions: number
+  clicks: number
+  spend: number
+  leads: number
+  ctr: number
+  cpl: number
+  share: number
+}
+
+export interface GeoCountryRow {
+  country: string
+  countryCode: string
+  spend: number
+  leads: number
+  impressions: number
+  cpl: number
+  ctr: number
+  share: number      // % of total spend
+}
+
+export interface AudienceBreakdown {
+  age: AudienceAgeRow[]
+  gender: AudienceGenderRow[]
+  countries: GeoCountryRow[]
+}
+
+// ─── Hourly Performance ───────────────────────────────────────────────────────
+
+export interface HourlyPerformanceRow {
+  hour: number       // 0–23
+  label: string      // '12am', '1am', '2pm', etc.
+  leads: number
+  spend: number
+  clicks: number
+  impressions: number
+  cpl: number
+}
+
+// ─── Creative Asset Insights ──────────────────────────────────────────────────
+
+export interface CreativeAssetRow {
+  id: string
+  assetType: 'title' | 'body' | 'cta' | 'image' | 'video'
+  assetValue: string
+  impressions: number
+  clicks: number
+  leads: number
+  spend: number
+  ctr: number
+  cpl: number
+}
+
+// ─── Conversion / Action Insights ─────────────────────────────────────────────
+
+export interface ConversionActionRow {
+  actionType: string
+  actionLabel: string
+  count: number
+  value: number      // revenue value where applicable
+  share: number      // % of total conversion volume
+  isModeled: boolean
+}
+
+// ─── Admin Client Comparison ──────────────────────────────────────────────────
+
+export interface ClientComparisonRow {
+  clientId: string
+  companyName: string
+  spend: number
+  leads: number
+  cpl: number
+  ctr: number
+  roas: number
+  campaigns: number
+}
+
+>>>>>>> dashboard-refactor
 // ─── Utilities ────────────────────────────────────────────────────────────────
 
 export type DateRange = {
