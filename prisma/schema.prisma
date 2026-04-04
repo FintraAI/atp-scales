@@ -191,6 +191,7 @@ model ClientProfile {
   files            ClientFile[]
   integrations     ClientIntegration[]
   adPlatformData   AdPlatformData[]
+  metaBreakdowns   MetaBreakdownRow[]
   stripeData       StripeData[]
   calendlyData     CalendlyData[]
 
@@ -521,6 +522,42 @@ model CalendlyData {
   clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
 
   @@index([clientProfileId, scheduledAt])
+}
+
+// ─────────────────────────────────────────────
+// META BREAKDOWN DATA
+// Stores normalized Meta API breakdown rows (age, gender, country, hourly, asset, action).
+// Populated by syncClientMetaData() when live API credentials are connected.
+// The dashboard currently reads from this table via breakdown.service.ts;
+// if empty, it falls back to mock data automatically.
+// ─────────────────────────────────────────────
+
+model MetaBreakdownRow {
+  id              String   @id @default(cuid())
+  clientProfileId String
+  // Date range this row covers
+  date            DateTime @db.Date
+  // Which breakdown dimension: "age" | "gender" | "country" | "hourly" | "title_asset" | "body_asset" | "cta_asset" | "action_type"
+  breakdown       String
+  // The dimension value: e.g. "25-34", "female", "US", "9", "Learn More", "lead"
+  dimension       String
+  // Core metrics
+  impressions     Int      @default(0)
+  clicks          Int      @default(0)
+  spend           Decimal  @db.Decimal(10, 2) @default(0)
+  leads           Int      @default(0)
+  revenue         Decimal  @db.Decimal(12, 2) @default(0)
+  // Modeled conversion flag (is_conversion_id_modeled)
+  isModeled       Boolean  @default(false)
+  // Source tracking
+  source          IntegrationProvider @default(META_ADS)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+
+  @@unique([clientProfileId, date, breakdown, dimension])
+  @@index([clientProfileId, breakdown, date])
 }
 
 // ─────────────────────────────────────────────

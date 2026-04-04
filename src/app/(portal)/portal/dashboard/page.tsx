@@ -1,15 +1,19 @@
 // src/app/(portal)/portal/dashboard/page.tsx
 
-import { getServerSession } from 'next-auth'
-import { authOptions }      from '@/lib/auth'
-import { redirect }         from 'next/navigation'
-import { KPICards }         from '@/components/dashboard/kpi-cards'
-import { PerformanceCharts } from '@/components/dashboard/performance-charts'
-import { CampaignTable }    from '@/components/dashboard/campaign-table'
-import { RecentUpdates }    from '@/components/dashboard/recent-updates'
-import { AdminOverview }    from '@/components/dashboard/admin-overview'
-import { InsightsFeed }     from '@/components/dashboard/insights-feed'
-import { computeInsights }  from '@/lib/metrics'
+import { getServerSession }     from 'next-auth'
+import { authOptions }          from '@/lib/auth'
+import { redirect }             from 'next/navigation'
+import { KPICards }             from '@/components/dashboard/kpi-cards'
+import { PerformanceCharts }    from '@/components/dashboard/performance-charts'
+import { CampaignTable }        from '@/components/dashboard/campaign-table'
+import { RecentUpdates }        from '@/components/dashboard/recent-updates'
+import { AdminOverview }        from '@/components/dashboard/admin-overview'
+import { InsightsFeed }         from '@/components/dashboard/insights-feed'
+import { AudienceBreakdown }    from '@/components/dashboard/audience-breakdown'
+import { HourlyPerformance }    from '@/components/dashboard/hourly-performance'
+import { CreativeInsights }     from '@/components/dashboard/creative-insights'
+import { ConversionInsights }   from '@/components/dashboard/conversion-insights'
+import { computeInsights }      from '@/lib/metrics'
 import {
   getClientDashboardData,
   getAdminDashboardData,
@@ -38,7 +42,8 @@ export default async function DashboardPage() {
   const insights = computeInsights(data.campaignRows)
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
+
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -52,11 +57,33 @@ export default async function DashboardPage() {
         )}
       </div>
 
+      {/* KPI Cards */}
       <KPICards kpis={data.kpis} />
+
+      {/* Performance Trends */}
       <PerformanceCharts chartData={data.chartData} />
+
+      {/* Actionable Insights */}
       {insights.length > 0 && <InsightsFeed insights={insights} />}
+
+      {/* Audience + Hourly — side by side */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <AudienceBreakdown data={data.audienceBreakdown} />
+        <HourlyPerformance rows={data.hourlyPerformance} />
+      </div>
+
+      {/* Creative Insights */}
+      <CreativeInsights rows={data.creativeInsights} simplified />
+
+      {/* Conversion Actions */}
+      <ConversionInsights rows={data.conversionInsights} simplified />
+
+      {/* Campaign Table */}
       <CampaignTable campaigns={data.campaignRows} />
+
+      {/* Recent Updates */}
       <RecentUpdates updates={data.updates} />
+
     </div>
   )
 }
