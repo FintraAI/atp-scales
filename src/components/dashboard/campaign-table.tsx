@@ -1,7 +1,7 @@
 'use client'
 // src/components/dashboard/campaign-table.tsx
 
-import { formatCurrency, formatNumber, formatPercent, formatRoas } from '@/lib/utils'
+import { formatCurrency, formatNumber, formatPercent } from '@/lib/utils'
 import type { CampaignRow } from '@/types'
 
 interface CampaignTableProps {
@@ -53,8 +53,6 @@ export function CampaignTable({ campaigns }: CampaignTableProps) {
               <th className="text-right">CPC</th>
               <th className="text-right">Leads</th>
               <th className="text-right">CPL</th>
-              <th className="text-right">Purchases</th>
-              <th className="text-right">ROAS</th>
               <th className="text-left">Status</th>
             </tr>
           </thead>
@@ -81,12 +79,6 @@ export function CampaignTable({ campaigns }: CampaignTableProps) {
                 <td className="text-right text-[#B3B3B3]">{formatCurrency(c.cpc)}</td>
                 <td className="text-right font-medium text-blue-400">{formatNumber(c.leads)}</td>
                 <td className="text-right text-[#B3B3B3]">{formatCurrency(c.cpl)}</td>
-                <td className="text-right text-[#B3B3B3]">{formatNumber(c.purchases)}</td>
-                <td className="text-right">
-                  <span className={`font-bold font-display ${c.roas >= 3 ? 'text-[#c8ff00]' : c.roas >= 1.5 ? 'text-amber-400' : 'text-red-400'}`}>
-                    {formatRoas(c.roas)}
-                  </span>
-                </td>
                 <td>
                   <div className="flex items-center gap-1.5">
                     <span className={`w-1.5 h-1.5 rounded-full ${c.status === 'ACTIVE' ? 'bg-emerald-400' : c.status === 'PAUSED' ? 'bg-amber-400' : 'bg-gray-500'}`} />

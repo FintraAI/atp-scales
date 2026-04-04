@@ -1,23 +1,18 @@
 'use client'
 // src/components/dashboard/kpi-cards.tsx — ATP gold/silver brand theme
 
-import { TrendingUp, TrendingDown, DollarSign, Target, Users, Calendar, Percent, Zap, PhoneCall, BarChart2 } from 'lucide-react'
-import { formatCurrency, formatNumber, formatPercent, formatRoas } from '@/lib/utils'
+import { TrendingUp, TrendingDown, DollarSign, Target, Users } from 'lucide-react'
+import { formatCurrency, formatNumber } from '@/lib/utils'
 import type { KPIData } from '@/types'
 
 export function KPICards({ kpis }: { kpis: KPIData }) {
   const cards = [
-    { label: 'Ad Spend',       value: formatCurrency(kpis.adSpend),            change: kpis.adSpendChange,  icon: DollarSign, gold: false },
-    { label: 'Revenue',        value: formatCurrency(kpis.revenue),             change: kpis.revenueChange,  icon: TrendingUp, gold: true  },
-    { label: 'ROAS',           value: formatRoas(kpis.roas),                    change: kpis.roasChange,     icon: Zap,        gold: true  },
-    { label: 'Leads',          value: formatNumber(kpis.leads),                 change: kpis.leadsChange,    icon: Users,      gold: false },
-    { label: 'Cost Per Lead',  value: formatCurrency(kpis.costPerLead),         change: kpis.leadsChange ? -kpis.leadsChange : undefined, icon: Target,    gold: false },
-    { label: 'Appointments',   value: formatNumber(kpis.appointments),          icon: Calendar,   gold: false },
-    { label: 'Cost / Appt',    value: formatCurrency(kpis.costPerAppointment),  icon: PhoneCall,  gold: false },
-    { label: 'Conv. Rate',     value: formatPercent(kpis.conversionRate),       icon: Percent,    gold: false },
+    { label: 'Ad Spend',      value: formatCurrency(kpis.adSpend),    change: kpis.adSpendChange, icon: DollarSign, gold: false },
+    { label: 'Leads',         value: formatNumber(kpis.leads),         change: kpis.leadsChange,   icon: Users,      gold: false },
+    { label: 'Cost Per Lead', value: formatCurrency(kpis.costPerLead), change: kpis.leadsChange ? -kpis.leadsChange : undefined, icon: Target, gold: false },
   ]
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
       {cards.map(c => <KPICard key={c.label} {...c} />)}
     </div>
   )

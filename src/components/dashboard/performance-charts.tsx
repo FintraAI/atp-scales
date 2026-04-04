@@ -8,10 +8,8 @@ import {
 } from 'recharts'
 import type { ChartDataPoint } from '@/types'
 
-const GOLD   = '#D4AF37'
-const SILVER = '#D8D8D8'
-const DIM    = '#6B6B6B'
-const TEAL   = '#2DD4BF'
+const GOLD = '#D4AF37'
+const TEAL = '#2DD4BF'
 
 const Tip = ({ active, payload, label, formatter }: any) => {
   if (!active || !payload?.length) return null
@@ -34,13 +32,11 @@ const Tip = ({ active, payload, label, formatter }: any) => {
 }
 
 const fmtCurrency = (v: number) => v >= 1000 ? `$${(v / 1000).toFixed(1)}k` : `$${v.toFixed(0)}`
-const fmtRoas     = (v: number) => `${v.toFixed(2)}x`
 const fmtCpl      = (v: number) => `$${v.toFixed(0)}`
 
 const TABS = [
-  { id: 'revenue', label: 'Spend vs Revenue' },
-  { id: 'roas',    label: 'ROAS' },
-  { id: 'leads',   label: 'Leads & Appts' },
+  { id: 'revenue', label: 'Ad Spend' },
+  { id: 'leads',   label: 'Leads' },
   { id: 'cpl',     label: 'CPL Trend' },
 ]
 
@@ -73,47 +69,27 @@ export function PerformanceCharts({ chartData }: { chartData: ChartDataPoint[] }
             <AreaChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="spendG" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor={DIM}  stopOpacity={0.2} />
-                  <stop offset="95%" stopColor={DIM}  stopOpacity={0}   />
-                </linearGradient>
-                <linearGradient id="revG" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%"  stopColor={GOLD} stopOpacity={0.25} />
-                  <stop offset="95%" stopColor={GOLD} stopOpacity={0}    />
+                  <stop offset="5%"  stopColor={GOLD} stopOpacity={0.2} />
+                  <stop offset="95%" stopColor={GOLD} stopOpacity={0}   />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
               <XAxis dataKey="date" tick={{ fill: '#6B6B6B', fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: '#6B6B6B', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={fmtCurrency} />
               <Tooltip content={<Tip formatter={(_: string, v: number) => fmtCurrency(v)} />} />
-              <Area type="monotone" dataKey="adSpend" name="Ad Spend" stroke={DIM}  strokeWidth={1.5} fill="url(#spendG)" />
-              <Area type="monotone" dataKey="revenue" name="Revenue"  stroke={GOLD} strokeWidth={2}   fill="url(#revG)"   />
+              <Area type="monotone" dataKey="adSpend" name="Ad Spend" stroke={GOLD} strokeWidth={2} fill="url(#spendG)" />
             </AreaChart>
-          </ResponsiveContainer>
-        )}
-
-        {tab === 'roas' && (
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
-              <XAxis dataKey="date" tick={{ fill: '#6B6B6B', fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: '#6B6B6B', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={fmtRoas} />
-              <Tooltip content={<Tip formatter={(_: string, v: number) => fmtRoas(v)} />} />
-              <ReferenceLine y={1} stroke="rgba(255,90,90,0.3)" strokeDasharray="4 2" />
-              <Line type="monotone" dataKey="roas" name="ROAS" stroke={GOLD} strokeWidth={2.5} dot={false}
-                activeDot={{ r: 5, fill: GOLD, stroke: '#050505', strokeWidth: 2 }} />
-            </LineChart>
           </ResponsiveContainer>
         )}
 
         {tab === 'leads' && (
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }} barGap={2}>
+            <BarChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
               <XAxis dataKey="date" tick={{ fill: '#6B6B6B', fontSize: 11 }} axisLine={false} tickLine={false} />
               <YAxis tick={{ fill: '#6B6B6B', fontSize: 11 }} axisLine={false} tickLine={false} />
               <Tooltip content={<Tip />} />
-              <Bar dataKey="leads"        name="Leads"        fill={SILVER} radius={[3, 3, 0, 0]} opacity={0.7} />
-              <Bar dataKey="appointments" name="Appointments" fill={GOLD}   radius={[3, 3, 0, 0]} />
+              <Bar dataKey="leads" name="Leads" fill={GOLD} radius={[3, 3, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         )}

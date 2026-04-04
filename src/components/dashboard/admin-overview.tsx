@@ -7,8 +7,8 @@ import {
   PERFORMANCE_CONFIG, CLIENT_STATUS_CONFIG,
 } from '@/lib/utils'
 import {
-  Users, TrendingUp, DollarSign, Target, ArrowRight,
-  ChevronRight, Zap, BarChart2, Percent, MousePointer,
+  Users, DollarSign, Target, ArrowRight,
+  ChevronRight, BarChart2, Percent, MousePointer,
 } from 'lucide-react'
 import type { PerformanceStatus, ClientStatus } from '@prisma/client'
 import type { AdminDashboardData } from '@/lib/services/dashboard.service'
@@ -56,8 +56,6 @@ function KPICard({
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export function AdminOverview({ data }: { data: AdminDashboardData }) {
-  const overallRoas = data.totalAdSpend > 0 ? data.totalRevenue / data.totalAdSpend : 0
-
   return (
     <div className="space-y-12">
 
@@ -75,16 +73,14 @@ export function AdminOverview({ data }: { data: AdminDashboardData }) {
       {/* ── 1. Executive Summary ────────────────────────────────────────────── */}
       <Section title="Executive Summary" sub="Aggregated performance across all active clients">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <KPICard label="Active Clients"  value={`${data.activeClients}`}               sub={`of ${data.totalClients} total`} icon={Users}         />
-          <KPICard label="Total Ad Spend"  value={formatCurrency(data.totalAdSpend, true)} sub="Last 30 days"                  icon={DollarSign}     />
-          <KPICard label="Total Revenue"   value={formatCurrency(data.totalRevenue, true)} sub="Last 30 days"                  icon={TrendingUp} gold />
-          <KPICard label="Blended ROAS"    value={`${overallRoas.toFixed(2)}x`}            sub="Across all clients"            icon={Zap}        gold />
+          <KPICard label="Active Clients" value={`${data.activeClients}`}                sub={`of ${data.totalClients} total`} icon={Users}      />
+          <KPICard label="Total Ad Spend" value={formatCurrency(data.totalAdSpend, true)} sub="Last 30 days"                  icon={DollarSign} />
+          <KPICard label="Total Leads"    value={formatNumber(data.totalLeads)}           sub="Last 30 days"                  icon={Target}     />
+          <KPICard label="Avg CPL"        value={formatCurrency(data.avgCpl)}             sub="Across all clients"            icon={BarChart2}  />
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <KPICard label="Total Leads"     value={formatNumber(data.totalLeads)}           sub="Last 30 days"                  icon={Target}         />
-          <KPICard label="Avg CPL"         value={formatCurrency(data.avgCpl)}             sub="Across all clients"            icon={BarChart2}      />
-          <KPICard label="Avg CTR"         value={formatPercent(data.avgCtr, 2)}           sub="Click-through rate"            icon={Percent}        />
-          <KPICard label="Avg CPC"         value={formatCurrency(data.avgCpc)}             sub="Cost per click"                icon={MousePointer}   />
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+          <KPICard label="Avg CTR" value={formatPercent(data.avgCtr, 2)} sub="Click-through rate" icon={Percent}      />
+          <KPICard label="Avg CPC" value={formatCurrency(data.avgCpc)}   sub="Cost per click"     icon={MousePointer} />
         </div>
       </Section>
 

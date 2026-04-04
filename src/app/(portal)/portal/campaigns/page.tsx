@@ -49,12 +49,11 @@ export default async function CampaignsPage() {
         <p className="text-[#6B6B6B] text-sm mt-1">Last 30 days · {rows.length} campaigns</p>
       </div>
 
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-3 gap-3">
         {[
           { label: 'Active Campaigns', value: String(rows.filter(r => r.status === 'ACTIVE').length), gold: false },
           { label: 'Total Spend',      value: formatCurrency(totalSpend), gold: false },
           { label: 'Total Leads',      value: formatNumber(totalLeads),   gold: false },
-          { label: 'Blended ROAS',     value: formatRoas(blendedRoas),    gold: true  },
         ].map(s => (
           <div key={s.label} className={s.gold ? 'atp-card-gold kpi-card' : 'kpi-card'}>
             <p className="text-[10px] font-bold uppercase tracking-wider text-[#6B6B6B] mb-1.5">{s.label}</p>
