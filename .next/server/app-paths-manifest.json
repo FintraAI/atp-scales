@@ -1,6 +1,5 @@
 {
-  "/(portal)/portal/dashboard/page": "app/(portal)/portal/dashboard/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(portal)/portal/updates/page": "app/(portal)/portal/updates/page.js",
-  "/(portal)/portal/creatives/page": "app/(portal)/portal/creatives/page.js"
+  "/(public)/page": "app/(public)/page.js",
+  "/(public)/pricing/page": "app/(public)/pricing/page.js",
+  "/(public)/book/page": "app/(public)/book/page.js"
 }

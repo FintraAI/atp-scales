@@ -1,9 +1,5 @@
 // src/app/layout.tsx
 import type { Metadata } from 'next'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/lib/auth'
-import { SessionProvider } from '@/components/providers/session-provider'
-import { ThemeProvider } from '@/components/providers/theme-provider'
 import { SITE_URL } from '@/lib/site'
 import '@/styles/globals.css'
 
@@ -19,27 +15,11 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const session = await getServerSession(authOptions)
-
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Inline script: apply saved theme before first paint to prevent flash */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('atp-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`,
-          }}
-        />
-      </head>
+    <html lang="en">
       <body>
-        <SessionProvider session={session}>
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
-        </SessionProvider>
+        {children}
       </body>
     </html>
   )

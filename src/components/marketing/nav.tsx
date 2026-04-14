@@ -9,12 +9,11 @@ import { AtpHorizontal } from '@/components/brand/logo'
 const NAV_LINKS = [
   { href: '/#services', label: 'Services' },
   { href: '/pricing',   label: 'Pricing'  },
-  { href: '/contact',   label: 'Contact'  },
 ]
 
 export function MarketingNav() {
-  const [scrolled,    setScrolled]    = useState(false)
-  const [mobileOpen,  setMobileOpen]  = useState(false)
+  const [scrolled,   setScrolled]   = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 24)
@@ -31,12 +30,12 @@ export function MarketingNav() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-[68px]">
 
-          {/* ── Logo ── */}
+          {/* Logo */}
           <Link href="/" className="shrink-0 opacity-90 hover:opacity-100 transition-opacity">
             <AtpHorizontal height={32} />
           </Link>
 
-          {/* ── Desktop links ── */}
+          {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
             {NAV_LINKS.map((item) => (
               <Link
@@ -49,23 +48,14 @@ export function MarketingNav() {
             ))}
           </div>
 
-          {/* ── Desktop CTAs ── */}
-          <div className="hidden md:flex items-center gap-3">
-            <Link
-              href="/login"
-              className="text-[#6B6B6B] hover:text-[#D8D8D8] text-[13px] font-medium transition-colors"
-            >
-              Client Login
-            </Link>
-            <Link
-              href="/contact"
-              className="btn-gold py-2 px-5 text-[13px]"
-            >
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center">
+            <Link href="/book" className="btn-gold py-2 px-5 text-[13px]">
               Book a Call
             </Link>
           </div>
 
-          {/* ── Mobile toggle ── */}
+          {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="md:hidden text-[#B3B3B3] hover:text-[#D8D8D8] transition-colors p-1.5 rounded-lg"
@@ -75,10 +65,10 @@ export function MarketingNav() {
           </button>
         </div>
 
-        {/* ── Mobile menu ── */}
+        {/* Mobile menu */}
         {mobileOpen && (
           <div className="md:hidden border-t border-[#222222] py-5 space-y-1 bg-[#050505]/98 backdrop-blur-md">
-            {[...NAV_LINKS, { href: '/login', label: 'Client Login' }].map((item) => (
+            {NAV_LINKS.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
@@ -90,7 +80,7 @@ export function MarketingNav() {
             ))}
             <div className="pt-3">
               <Link
-                href="/contact"
+                href="/book"
                 onClick={() => setMobileOpen(false)}
                 className="btn-gold w-full justify-center py-3 text-[13px]"
               >

@@ -96,6 +96,20 @@ enum UpdateCategory {
   GENERAL
 }
 
+enum ContactStatus {
+  NEW_LEAD
+  CONTACTED
+  BOOKED
+  NO_RESPONSE
+  CLOSED
+  NO_SHOW
+}
+
+enum MessageDirection {
+  INBOUND
+  OUTBOUND
+}
+
 // ─────────────────────────────────────────────
 // USERS & AUTH
 // ─────────────────────────────────────────────
@@ -194,6 +208,10 @@ model ClientProfile {
   metaBreakdowns   MetaBreakdownRow[]
   stripeData       StripeData[]
   calendlyData     CalendlyData[]
+  contacts         Contact[]
+  conversations    Conversation[]
+  messageTemplates MessageTemplate[]
+  phoneNumber      PhoneNumber?
 
   @@index([status])
   @@index([accountManagerId])
@@ -558,6 +576,103 @@ model MetaBreakdownRow {
 
   @@unique([clientProfileId, date, breakdown, dimension])
   @@index([clientProfileId, breakdown, date])
+}
+
+// ─────────────────────────────────────────────
+// CONTACTS (leads collected from ads / forms)
+// ─────────────────────────────────────────────
+
+model Contact {
+  id              String        @id @default(cuid())
+  clientProfileId String
+  name            String
+  phone           String?
+  email           String?
+  // Attribution
+  source          String?       // "META_AD" | "GOOGLE_AD" | "MANUAL" | "IMPORT"
+  campaignId      String?
+  campaignName    String?       // denormalized for fast display
+  adName          String?       // which ad they came from
+  // Meta-specific
+  metaLeadId      String?       // Meta lead gen form submission ID
+  metaFormId      String?       // Meta lead form ID
+  externalData    Json?         // raw Meta lead payload for future field mapping
+  // CRM state
+  status          ContactStatus @default(NEW_LEAD)
+  tags            String[]
+  notes           String?       @db.Text
+  bookedAt        DateTime?
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  clientProfile   ClientProfile  @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+  conversation    Conversation?
+
+  @@index([clientProfileId, status])
+  @@index([clientProfileId, createdAt])
+  @@index([metaLeadId])
+}
+
+// ─────────────────────────────────────────────
+// CONVERSATIONS (SMS threads via Twilio)
+// ─────────────────────────────────────────────
+
+model Conversation {
+  id              String    @id @default(cuid())
+  clientProfileId String
+  contactId       String    @unique
+  fromNumber      String?   // client's Twilio number
+  toNumber        String?   // contact's phone number
+  lastMessageAt   DateTime?
+  lastMessageText String?   @db.Text
+  isRead          Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+  contact         Contact       @relation(fields: [contactId], references: [id], onDelete: Cascade)
+  messages        Message[]
+
+  @@index([clientProfileId, lastMessageAt])
+  @@index([clientProfileId, isRead])
+}
+
+model Message {
+  id             String           @id @default(cuid())
+  conversationId String
+  direction      MessageDirection
+  body           String           @db.Text
+  twilioSid      String?          @unique  // Twilio message SID
+  status         String?          // "queued" | "sent" | "delivered" | "failed" | "received"
+  sentAt         DateTime         @default(now())
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId, sentAt])
+}
+
+model MessageTemplate {
+  id              String   @id @default(cuid())
+  clientProfileId String
+  name            String   // e.g. "Booking Link", "Follow-Up", "No Response"
+  body            String   @db.Text
+  isDefault       Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
+}
+
+// One Twilio number per client
+model PhoneNumber {
+  id              String   @id @default(cuid())
+  clientProfileId String   @unique
+  number          String   // E.164 format, e.g. "+15551234567"
+  twilioSid       String?
+  isActive        Boolean  @default(true)
+  createdAt       DateTime @default(now())
+
+  clientProfile   ClientProfile @relation(fields: [clientProfileId], references: [id], onDelete: Cascade)
 }
 
 // ─────────────────────────────────────────────
