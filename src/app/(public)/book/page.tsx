@@ -16,8 +16,8 @@ const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.c
 const PERKS = [
   { icon: Clock,       title: '30 Minutes',        desc: 'No fluff, straight to what matters.' },
   { icon: TrendingUp,  title: 'Free Ad Audit',      desc: 'We identify where money is being lost.' },
-  { icon: Users,       title: 'Custom Growth Plan', desc: 'A clear roadmap you keep either way.' },
-  { icon: CheckCircle, title: 'Zero Pressure',      desc: 'Honest fit assessment — no hard sell.' },
+  { icon: Users,       title: 'Custom Growth Plan', desc: 'A clear roadmap showing whats possible.' },
+  { icon: CheckCircle, title: 'Zero Pressure',      desc: 'Honest fit assessment, no hard sell.' },
 ]
 
 export default function BookPage() {
@@ -49,7 +49,7 @@ export default function BookPage() {
               <span className="gold-text">A Good Fit</span>
             </h1>
             <p className="text-[#888] text-[15px] max-w-lg mx-auto leading-relaxed">
-              Book a free 30-minute call. We&apos;ll audit your ads and show you exactly
+              Book a free 30-minute call. We&apos;ll audit your company and show you exactly
               where your biggest growth opportunities are.
             </p>
           </div>
@@ -78,9 +78,9 @@ export default function BookPage() {
           {/* Stats strip */}
           <div className="mt-8 grid grid-cols-4 gap-4 border border-[#1A1A1A] rounded-2xl bg-[#0A0A0A] px-6 py-5">
             {[
-              { value: '$14M+', label: 'Ad Spend Managed'   },
-              { value: '$20',   label: 'Avg. Cost Per Lead'  },
-              { value: '180+',  label: 'Campaigns Launched'  },
+              { value: '$5M+', label: 'Ad Spend Managed'   },
+              { value: '$18',   label: 'Avg. Cost Per Lead'  },
+              { value: '100+',  label: 'Campaigns Launched'  },
               { value: '98%',   label: 'Client Retention'    },
             ].map(stat => (
               <div key={stat.label} className="text-center">

@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react'
 
 export const metadata = {
   title: 'Privacy Policy',
-  description: 'How ATP Scales collects, uses, and protects your information.',
+  description: 'How ATP Scales LLC collects, uses, and protects your information.',
 }
 
 const SECTIONS = [
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="text-[#6B6B6B] text-base max-w-xl leading-relaxed">
-            How ATP Scales collects, uses, and protects your information.
+            How ATP Scales LLC collects, uses, and protects your information.
           </p>
           <p className="text-[#333] text-sm mt-3">Last updated: April 3, 2026</p>
         </div>
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
               {/* Intro */}
               <div className="px-8 py-8 border-b border-[#1A1A1A]">
                 <p className="text-[14px] text-[#777] leading-relaxed">
-                  ATP Scales ("we," "us," or "our") respects your privacy. This Privacy Policy explains
+                  ATP Scales LLC ("we," "us," or "our") respects your privacy. This Privacy Policy explains
                   how we collect, use, and protect your information when you use our website and
                   services. By using our website or services, you agree to this Privacy Policy.
                 </p>
@@ -204,7 +204,7 @@ export default function PrivacyPage() {
                   <p>
                     Clients are responsible for ensuring their own compliance with applicable data
                     protection laws when collecting and using customer data, including leads generated
-                    through advertising campaigns. ATP Scales is not responsible for how clients use or
+                    through advertising campaigns. ATP Scales LLC is not responsible for how clients use or
                     manage collected data.
                   </p>
                 </PrivacySection>

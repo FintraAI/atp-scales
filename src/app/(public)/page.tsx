@@ -23,13 +23,6 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8 w-full">
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2.5 border border-[rgba(212,175,55,0.25)] bg-[rgba(212,175,55,0.05)] rounded-full px-4 py-1.5 mb-8">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
-              <span className="text-[#D4AF37] text-[11px] font-bold tracking-[0.18em] uppercase">
-                Performance Ad Agency
-              </span>
-            </div>
-
             <h1 className="font-display font-black text-5xl sm:text-6xl lg:text-[80px] text-white leading-[0.95] tracking-tight mb-6">
               We Don&apos;t Run Ads.
               <br />
@@ -37,8 +30,8 @@ export default function HomePage() {
             </h1>
 
             <p className="text-[#B3B3B3] text-lg leading-relaxed max-w-2xl mb-10">
-              We build Meta ad systems that turn cold traffic into predictable booked appointments —
-              tracked, optimized, and scaled weekly.
+              We build Meta ad systems that consistently convert cold traffic into booked appointments
+              that are fully tracked, optimized, and scaled week over week.
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -53,9 +46,9 @@ export default function HomePage() {
             {/* Stats */}
             <div className="flex flex-wrap gap-10 mt-16 pt-12 border-t border-[#1A1A1A]">
               {[
-                { value: '$14M+', label: 'Ad Spend Managed'   },
-                { value: '$20',   label: 'Average CPL'         },
-                { value: '180+',  label: 'Campaigns Launched'  },
+                { value: '$5M+', label: 'Ad Spend Managed'   },
+                { value: '$18',   label: 'Average CPL'         },
+                { value: '100+',  label: 'Campaigns Launched'  },
                 { value: '98%',   label: 'Client Retention'    },
               ].map((stat) => (
                 <div key={stat.label}>
@@ -102,7 +95,7 @@ export default function HomePage() {
               {
                 icon: Target,
                 title: 'Lead Generation System',
-                desc:  'We build Meta ad funnels designed specifically to generate booked appointments — not just clicks.',
+                desc:  'We build Meta ad funnels designed specifically to generate booked appointments, not just clicks.',
               },
               {
                 icon: BarChart2,
@@ -157,7 +150,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-4 gap-6 lg:gap-10">
             {[
-              { num: '01', title: 'Pilot Month',     desc: 'First 30 days at $1,000 flat. We build the system and prove we can get you leads before you commit to a full plan.' },
+              { num: '01', title: 'Strategy & Build', desc: 'We dissect your offer, audience, and competitors — then build campaigns and creatives from the ground up.' },
               { num: '02', title: 'Build & Launch',  desc: 'Campaigns and creatives engineered around your offer. We test 2–3 angles from day one.' },
               { num: '03', title: 'Optimize Daily',  desc: 'We monitor CPL daily. Weekly adjustments to creatives, targeting, and budget allocation.' },
               { num: '04', title: 'Scale Winners',   desc: 'Once CPL is under $30 and bookings are consistent, we increase budget and add new campaigns.' },
@@ -193,9 +186,9 @@ export default function HomePage() {
             {[
               {
                 tag:      'Meta Ads',
-                headline: '$20 Average CPL',
-                detail:   '$2,840 in ad spend generated 142 leads at $20 cost per lead.',
-                metrics:  [{ label: 'Ad Spend', value: '$2,840' }, { label: 'Leads', value: '142' }, { label: 'CPL', value: '$20' }],
+                headline: '$18 Average CPL',
+                detail:   '$2,00 in ad spend generated 111 leads at $18 cost per lead.',
+                metrics:  [{ label: 'Ad Spend', value: '$2,000' }, { label: 'Leads', value: '111' }, { label: 'CPL', value: '$18' }],
                 featured: false,
               },
               {
@@ -249,8 +242,7 @@ export default function HomePage() {
               Simple, Transparent Pricing
             </h2>
             <p className="text-[#666] mt-3 max-w-lg mx-auto text-[14px] leading-relaxed">
-              Start with a $1,000 pilot month to prove results. Then choose your plan.
-              Ad spend is separate and paid directly to Meta.
+              Simple monthly pricing. Ad spend is separate and paid directly to Meta.
             </p>
           </div>
 
@@ -331,7 +323,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center text-[#333] text-[12px]">
-            Pilot month: $1,000 flat for the first 30 days · Ad spend is separate and billed directly to Meta
+Ad spend is separate and billed directly to Meta
           </p>
         </div>
       </section>

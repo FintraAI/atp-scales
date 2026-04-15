@@ -151,49 +151,24 @@ export function AtpMark({ size = 32, className }: { size?: number; className?: s
   )
 }
 
-// Horizontal variant: mark + wordmark side by side
+// Horizontal nav logo: plain text wordmark, no SVG fragility
 export function AtpHorizontal({ height = 36, className }: { height?: number; className?: string }) {
-  const scale = height / 36
-  const w = Math.round(220 * scale)
-  const h = height
-
   return (
-    <svg
-      width={w}
-      height={h}
-      viewBox="0 0 220 36"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <span
       className={className}
+      style={{
+        fontFamily:    '"Bebas Neue", sans-serif',
+        fontSize:      height,
+        lineHeight:    1,
+        letterSpacing: '0.06em',
+        display:       'inline-flex',
+        alignItems:    'baseline',
+        gap:           '0.18em',
+      }}
       aria-label="ATP Scales"
     >
-      <defs>
-        <linearGradient id="hSilver" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FFFFFF" />
-          <stop offset="100%" stopColor="#C0C0C0" />
-        </linearGradient>
-        <linearGradient id="hGold" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%"   stopColor="#8A6E2F" />
-          <stop offset="50%"  stopColor="#E6C65C" />
-          <stop offset="100%" stopColor="#D4AF37" />
-        </linearGradient>
-      </defs>
-
-      {/* Mark background */}
-      <rect width="36" height="36" rx="7" fill="#0F0F0F" />
-
-      {/* A */}
-      <path d="M4 28 L11.5 6 L19 28 M6 20 L17 20" stroke="url(#hSilver)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      {/* T */}
-      <path d="M23 6 L32 6 M27.5 6 L27.5 28" stroke="url(#hSilver)" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      {/* Gold arrow */}
-      <line x1="5" y1="27" x2="18" y2="7" stroke="url(#hGold)" strokeWidth="1.8" strokeLinecap="round" />
-      <polygon points="18,7 12,11 16,15" fill="url(#hGold)" />
-
-      {/* Wordmark: ATP */}
-      <text x="45" y="22" fontFamily="'Bebas Neue', sans-serif" fontSize="20" letterSpacing="2" fill="url(#hSilver)">ATP</text>
-      {/* Wordmark: SCALES */}
-      <text x="95" y="28" fontFamily="'Bebas Neue', sans-serif" fontSize="11" letterSpacing="4" fill="url(#hGold)">SCALES</text>
-    </svg>
+      <span style={{ color: '#FFFFFF' }}>ATP</span>
+      <span style={{ color: '#D4AF37' }}>Scales</span>
+    </span>
   )
 }

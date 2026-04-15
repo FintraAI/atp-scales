@@ -2,23 +2,19 @@
 
 import { MarketingNav } from '@/components/marketing/nav'
 import { MarketingFooter } from '@/components/marketing/footer'
-import { Shield, FileText, CreditCard, Camera, Users, Lock, UserMinus, BarChart2 } from 'lucide-react'
+import { Shield, FileText, CreditCard, Lock, UserMinus } from 'lucide-react'
 
 export const metadata = {
   title: 'Terms of Service & Legal',
-  description: 'ATP Scales terms of service, data processing agreement, and all client agreements.',
+  description: 'ATP Scales LLC terms of service, data processing agreement, and all client agreements.',
 }
 
 const SECTIONS = [
-  { id: 'tos',         label: 'Terms of Service',        icon: FileText  },
-  { id: 'privacy',     label: 'Privacy Policy',           icon: Shield    },
-  { id: 'dpa',         label: 'Data Processing',          icon: Lock      },
-  { id: 'media',       label: 'Media Release',            icon: Camera    },
-  { id: 'payment',     label: 'Payment Authorization',    icon: CreditCard},
-  { id: 'adaccount',   label: 'Ad Account Responsibility',icon: BarChart2 },
-  { id: 'contractor',  label: 'Contractor Agreement',     icon: Users     },
-  { id: 'nda',         label: 'Non-Disclosure',           icon: Lock      },
-  { id: 'offboarding', label: 'Offboarding Process',      icon: UserMinus },
+  { id: 'tos',         label: 'Terms of Service',     icon: FileText  },
+  { id: 'privacy',     label: 'Privacy Policy',        icon: Shield    },
+  { id: 'dpa',         label: 'Data Processing',       icon: Lock      },
+  { id: 'payment',     label: 'Payment Authorization', icon: CreditCard},
+  { id: 'offboarding', label: 'Offboarding Process',   icon: UserMinus },
 ]
 
 export default function TermsPage() {
@@ -72,12 +68,12 @@ export default function TermsPage() {
             {/* ══ TERMS OF SERVICE ══════════════════════════ */}
             <LegalDoc id="tos" title="Terms of Service" badge="Last updated: April 3, 2026">
               <p className="lead">
-                Welcome to ATP Scales. By accessing or using our services, website, or client portal,
+                Welcome to ATP Scales LLC. By accessing or using our services, website, or client portal,
                 you agree to the following Terms of Service.
               </p>
 
               <Section num="1" title="Services">
-                <p>ATP Scales provides digital marketing services including but not limited to:</p>
+                <p>ATP Scales LLC provides digital marketing services including but not limited to:</p>
                 <ul>
                   <li>Paid advertising (Meta platforms)</li>
                   <li>Campaign management and optimization</li>
@@ -114,12 +110,12 @@ export default function TermsPage() {
 
               <Section num="5" title="Intellectual Property">
                 <p>
-                  All materials created by ATP Scales remain our property until full payment is received.
+                  All materials created by ATP Scales LLC remain our property until full payment is received.
                 </p>
               </Section>
 
               <Section num="6" title="Limitation of Liability">
-                <p>ATP Scales is not liable for:</p>
+                <p>ATP Scales LLC is not liable for:</p>
                 <ul>
                   <li>Loss of revenue or profits</li>
                   <li>Platform outages</li>
@@ -129,9 +125,9 @@ export default function TermsPage() {
 
               <Section num="7" title="Termination">
                 <p>
-                  You acknowledge and agree that ATP Scales, in its sole discretion, may terminate your
+                  You acknowledge and agree that ATP Scales LLC, in its sole discretion, may terminate your
                   website access if your conduct is found to be unlawful, inconsistent with, or in
-                  violation of the letter or spirit of these Terms. ATP Scales shall not be liable to
+                  violation of the letter or spirit of these Terms. ATP Scales LLC shall not be liable to
                   you or any third party for termination of website access. Should you object to any
                   terms and conditions of these Terms, or to any subsequent modifications thereto, your
                   only recourse is to immediately discontinue use of the website.
@@ -158,7 +154,7 @@ export default function TermsPage() {
             {/* ══ PRIVACY POLICY ════════════════════════════ */}
             <LegalDoc id="privacy" title="Privacy Policy" badge="Last updated: April 3, 2026">
               <p className="lead">
-                ATP Scales respects your privacy. This Privacy Policy explains how we collect, use,
+                ATP Scales LLC respects your privacy. This Privacy Policy explains how we collect, use,
                 and protect your information when you use our website and services. By using our
                 website or services, you agree to this Privacy Policy.
               </p>
@@ -269,7 +265,7 @@ export default function TermsPage() {
                 <p>
                   Clients are responsible for ensuring their own compliance with applicable data
                   protection laws when collecting and using customer data (including leads generated
-                  through advertising campaigns). ATP Scales is not responsible for how clients use
+                  through advertising campaigns). ATP Scales LLC is not responsible for how clients use
                   or manage collected data.
                 </p>
               </Section>
@@ -300,13 +296,13 @@ export default function TermsPage() {
             </LegalDoc>
 
             {/* ══ DATA PROCESSING AGREEMENT ═════════════════ */}
-            <LegalDoc id="dpa" title="Data Processing Agreement" badge="Between ATP Scales and Client">
+            <LegalDoc id="dpa" title="Data Processing Agreement" badge="Between ATP Scales LLC and Client">
               <p className="lead">
-                This agreement governs how ATP Scales processes data on behalf of the Client.
+                This agreement governs how ATP Scales LLC processes data on behalf of the Client.
               </p>
 
               <Section num="1" title="Scope">
-                <p>ATP Scales processes personal data solely to provide marketing services.</p>
+                <p>ATP Scales LLC processes personal data solely to provide marketing services.</p>
               </Section>
 
               <Section num="2" title="Types of Data Processed">
@@ -323,7 +319,7 @@ export default function TermsPage() {
                   <li>Owns all collected data</li>
                   <li>Ensures legal compliance</li>
                 </ul>
-                <p className="mt-3"><strong>ATP Scales:</strong></p>
+                <p className="mt-3"><strong>ATP Scales LLC:</strong></p>
                 <ul>
                   <li>Processes data only as instructed</li>
                   <li>Does not sell or misuse data</li>
@@ -360,52 +356,10 @@ export default function TermsPage() {
               </Section>
             </LegalDoc>
 
-            {/* ══ MEDIA RELEASE ═════════════════════════════ */}
-            <LegalDoc id="media" title="Media Release & Content Consent" badge="Agreement">
-              <p className="lead">
-                Client grants ATP Scales permission to use submitted creative content for marketing
-                purposes during and after active engagement.
-              </p>
-
-              <Section num="1" title="Content Covered">
-                <ul>
-                  <li>Images and photography</li>
-                  <li>Videos and reels</li>
-                  <li>Testimonials and reviews</li>
-                  <li>Before/after content</li>
-                </ul>
-              </Section>
-
-              <Section num="2" title="Permitted Usage">
-                <ul>
-                  <li>Paid advertising campaigns</li>
-                  <li>Social media content</li>
-                  <li>Marketing materials and case studies</li>
-                </ul>
-              </Section>
-
-              <Section num="3" title="Terms">
-                <ul>
-                  <li>Content may be edited for marketing purposes</li>
-                  <li>Usage continues during active engagement</li>
-                  <li>Client may revoke usage rights upon termination with written notice</li>
-                </ul>
-              </Section>
-
-              <Section num="4" title="Client Responsibility">
-                <p>
-                  Client confirms they hold legal rights to all submitted content and that its use
-                  does not infringe upon any third-party rights.
-                </p>
-              </Section>
-
-              <SignatureBlock fields={['Client Name', 'Signature', 'Date']} />
-            </LegalDoc>
-
             {/* ══ PAYMENT AUTHORIZATION ═════════════════════ */}
             <LegalDoc id="payment" title="Payment Authorization Agreement" badge="Agreement">
               <p className="lead">
-                Client authorizes ATP Scales to charge agreed fees per the terms below.
+                Client authorizes ATP Scales LLC to charge agreed fees per the terms below.
               </p>
 
               <Section num="1" title="Billing Terms">
@@ -426,141 +380,9 @@ export default function TermsPage() {
               <Section num="3" title="Chargeback Policy">
                 <p>
                   Client agrees not to initiate chargebacks or payment disputes without first
-                  contacting ATP Scales directly and allowing a reasonable resolution period.
+                  contacting ATP Scales LLC directly and allowing a reasonable resolution period.
                 </p>
               </Section>
-
-              <SignatureBlock fields={['Client Name', 'Signature', 'Date']} />
-            </LegalDoc>
-
-            {/* ══ AD ACCOUNT RESPONSIBILITY ═════════════════ */}
-            <LegalDoc id="adaccount" title="Ad Account Responsibility Agreement" badge="Agreement">
-              <p className="lead">
-                This agreement clarifies ownership, responsibilities, and liability related to
-                advertising accounts managed by ATP Scales on behalf of the Client.
-              </p>
-
-              <Section num="1" title="Ownership">
-                <p>Client owns:</p>
-                <ul>
-                  <li>Advertising account(s)</li>
-                  <li>Pages and business assets</li>
-                  <li>All collected data</li>
-                </ul>
-              </Section>
-
-              <Section num="2" title="Client Responsibility">
-                <p>Client is responsible for:</p>
-                <ul>
-                  <li>Total ad spend incurred</li>
-                  <li>Account policy compliance</li>
-                </ul>
-              </Section>
-
-              <Section num="3" title="ATP Scales Is NOT Liable For">
-                <ul>
-                  <li>Account bans or restrictions</li>
-                  <li>Platform policy violations</li>
-                  <li>Performance outcomes</li>
-                </ul>
-              </Section>
-
-              <Section num="4" title="Access Requirements">
-                <p>
-                  Client must grant ATP Scales the necessary permissions and access to manage
-                  campaigns effectively.
-                </p>
-              </Section>
-
-              <SignatureBlock fields={['Client Name', 'Signature', 'Date']} />
-            </LegalDoc>
-
-            {/* ══ INDEPENDENT CONTRACTOR ════════════════════ */}
-            <LegalDoc id="contractor" title="Independent Contractor Agreement" badge="Internal Agreement">
-              <p className="lead">
-                This agreement governs the relationship between ATP Scales and independent contractors
-                engaged to provide services.
-              </p>
-
-              <Section num="1" title="Scope of Services">
-                <p>
-                  Contractor provides services as defined per individual agreement. The relationship
-                  is that of independent contractor — not employee, partner, or agent.
-                </p>
-              </Section>
-
-              <Section num="2" title="Payment">
-                <p>
-                  Compensation is defined per individual agreement and paid according to agreed milestones
-                  or schedules.
-                </p>
-              </Section>
-
-              <Section num="3" title="Work Ownership">
-                <p>
-                  All work product, deliverables, and intellectual property created in the course of
-                  this engagement become the property of ATP Scales upon full payment.
-                </p>
-              </Section>
-
-              <Section num="4" title="Confidentiality">
-                <p>
-                  Contractor may not share, disclose, or distribute any client information, campaign
-                  data, strategies, or proprietary business information.
-                </p>
-              </Section>
-
-              <Section num="5" title="Non-Solicitation">
-                <p>
-                  Contractor may not independently solicit, contact, or engage ATP Scales clients
-                  for competing services during or after the term of this agreement.
-                </p>
-              </Section>
-
-              <SignatureBlock fields={['Contractor Name', 'Signature', 'Date']} />
-            </LegalDoc>
-
-            {/* ══ NDA ═══════════════════════════════════════ */}
-            <LegalDoc id="nda" title="Non-Disclosure Agreement" badge="Mutual Agreement">
-              <p className="lead">
-                Both parties agree not to disclose confidential information obtained through
-                their business relationship.
-              </p>
-
-              <Section num="1" title="Confidential Information Includes">
-                <ul>
-                  <li>Marketing strategies and campaign data</li>
-                  <li>Client data and lead information</li>
-                  <li>Business processes and systems</li>
-                  <li>Financial information and pricing</li>
-                </ul>
-              </Section>
-
-              <Section num="2" title="Obligations">
-                <p>Each party agrees to:</p>
-                <ul>
-                  <li>Hold all confidential information in strict confidence</li>
-                  <li>Not disclose to any third party without prior written consent</li>
-                  <li>Use confidential information only for the purpose of the business relationship</li>
-                </ul>
-              </Section>
-
-              <Section num="3" title="Term">
-                <p>
-                  This agreement remains in effect for 2–5 years following the termination of the
-                  business relationship, as defined in the individual agreement.
-                </p>
-              </Section>
-
-              <Section num="4" title="Exceptions">
-                <p>Confidentiality obligations do not apply to information that is:</p>
-                <ul>
-                  <li>Publicly known through no fault of either party</li>
-                  <li>Required to be disclosed by law or court order</li>
-                </ul>
-              </Section>
-
-              <SignatureBlock fields={['Party A Name', 'Party B Name', 'Signature A', 'Signature B', 'Date']} />
             </LegalDoc>
 
             {/* ══ OFFBOARDING ═══════════════════════════════ */}
@@ -580,7 +402,7 @@ export default function TermsPage() {
               <Section num="2" title="Data Handling">
                 <p>
                   Client retains full ownership of all collected data, campaign history, and
-                  creative assets. ATP Scales access is revoked upon completion of offboarding.
+                  creative assets. ATP Scales LLC access is revoked upon completion of offboarding.
                 </p>
               </Section>
 
@@ -650,24 +472,6 @@ function Section({
       </h3>
       <div className="space-y-3 pl-5 border-l border-[#1E1E1E]">
         {children}
-      </div>
-    </div>
-  )
-}
-
-function SignatureBlock({ fields }: { fields: string[] }) {
-  return (
-    <div className="mt-6 pt-6 border-t border-[#1E1E1E]">
-      <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#333] mb-5">
-        Signature Required
-      </p>
-      <div className="grid sm:grid-cols-3 gap-4">
-        {fields.map((f) => (
-          <div key={f}>
-            <p className="text-[11px] text-[#6B6B6B] mb-2">{f}</p>
-            <div className="h-10 border-b border-dashed border-[#2A2A2A]" />
-          </div>
-        ))}
       </div>
     </div>
   )

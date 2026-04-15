@@ -1,13 +1,13 @@
 // src/app/(public)/pricing/page.tsx
 
 import Link from 'next/link'
-import { ArrowRight, Check, Zap } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { MarketingNav }    from '@/components/marketing/nav'
 import { MarketingFooter } from '@/components/marketing/footer'
 
 export const metadata = {
   title:       'Pricing — ATP Scales',
-  description: 'Simple, transparent pricing. First 30 days at $1,000 to prove results.',
+  description: 'Simple, transparent pricing. No lock-ins.',
 }
 
 const PLANS = [
@@ -45,36 +45,6 @@ const PLANS = [
   },
 ]
 
-const AD_SPEND_ROWS = [
-  {
-    spend: '$1,500 / mo',
-    campaigns: '1 campaign',
-    at15: '100 leads',
-    at25: '60 leads',
-    realistic: '60–100 leads/mo',
-  },
-  {
-    spend: '$2,000 / mo',
-    campaigns: '1 campaign',
-    at15: '130 leads',
-    at25: '80 leads',
-    realistic: '80–130 leads/mo',
-  },
-  {
-    spend: '$3,000 / mo',
-    campaigns: '1 campaign',
-    at15: '200 leads',
-    at25: '120 leads',
-    realistic: '120–200 leads/mo',
-  },
-  {
-    spend: '$5,000 / mo',
-    campaigns: '2 campaigns',
-    at15: '330 leads',
-    at25: '200 leads',
-    realistic: '200–330 leads/mo',
-  },
-]
 
 export default function PricingPage() {
   return (
@@ -91,33 +61,8 @@ export default function PricingPage() {
               Simple, Transparent Pricing
             </h1>
             <p className="text-[#888] text-base leading-relaxed max-w-xl mx-auto">
-              No lock-ins. We start with a pilot month at $1,000 to prove results —
-              then you choose your plan.
+              No lock-ins. We earn your trust every month.
             </p>
-          </div>
-
-          {/* ── Pilot Month Banner ────────────────────────────── */}
-          <div
-            className="rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4"
-            style={{
-              background:   'linear-gradient(135deg, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.03) 100%)',
-              border:       '1px solid rgba(212,175,55,0.25)',
-            }}
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl bg-[rgba(212,175,55,0.12)] border border-[rgba(212,175,55,0.2)] flex items-center justify-center shrink-0">
-                <Zap className="w-5 h-5 text-[#D4AF37]" />
-              </div>
-              <div>
-                <p className="text-white font-bold text-[15px]">Pilot Month — $1,000 flat</p>
-                <p className="text-[#888] text-[13px] mt-0.5">
-                  First 30 days on either plan. We prove results, then you transition into your chosen plan.
-                </p>
-              </div>
-            </div>
-            <Link href="/book" className="btn-gold shrink-0 py-2.5 px-6 text-[13px]">
-              Start the Pilot
-            </Link>
           </div>
 
           {/* ── Plan Cards ────────────────────────────────────── */}
@@ -205,81 +150,7 @@ export default function PricingPage() {
             <p className="text-[#555] text-[12px] mt-4 text-center">If we stay under $30 CPL, we&apos;re winning.</p>
           </div>
 
-          {/* ── Leads by Ad Spend Table ───────────────────────── */}
-          <div>
-            <div className="mb-6">
-              <p className="text-[#D4AF37] text-[11px] font-bold uppercase tracking-[0.2em] mb-2">Projected Results</p>
-              <h2 className="font-display font-black text-3xl lg:text-4xl text-white">Leads by Ad Spend</h2>
-            </div>
-            <div className="rounded-2xl overflow-hidden border border-[#1A1A1A]">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-[#1A1A1A] bg-[#0A0A0A]">
-                    {['Ad Spend', 'Campaigns', 'At $15 CPL', 'At $25 CPL', 'Realistic Range'].map(h => (
-                      <th key={h} className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#555]">{h}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {AD_SPEND_ROWS.map((row, i) => (
-                    <tr
-                      key={row.spend}
-                      className="border-b border-[#111] last:border-0"
-                      style={{ background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)' }}
-                    >
-                      <td className="px-5 py-4 font-bold text-white text-[13px]">{row.spend}</td>
-                      <td className="px-5 py-4 text-[#666] text-[13px]">{row.campaigns}</td>
-                      <td className="px-5 py-4 text-[#059669] font-semibold text-[13px]">{row.at15}</td>
-                      <td className="px-5 py-4 text-[#D97706] font-semibold text-[13px]">{row.at25}</td>
-                      <td className="px-5 py-4 text-[#D4AF37] font-bold text-[13px]">{row.realistic}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
 
-          {/* ── Leads ≠ Money callout ─────────────────────────── */}
-          <div
-            className="rounded-2xl p-8 text-center border"
-            style={{
-              background:   'linear-gradient(135deg, rgba(212,175,55,0.06) 0%, transparent 100%)',
-              borderColor:  'rgba(212,175,55,0.15)',
-            }}
-          >
-            <p className="text-[#D4AF37] text-[11px] font-bold uppercase tracking-[0.2em] mb-4">What Most People Ignore</p>
-            <div className="flex items-center justify-center gap-6 mb-6">
-              <div>
-                <p className="font-display font-black text-2xl text-[#555] line-through">Leads</p>
-                <p className="text-[#444] text-[11px] mt-1">Not money</p>
-              </div>
-              <div className="text-[#333] text-2xl font-bold">≠</div>
-              <div>
-                <p className="font-display font-black text-2xl text-[#D4AF37]">Bookings</p>
-                <p className="text-[#D4AF37] text-[11px] mt-1">That&apos;s the money</p>
-              </div>
-            </div>
-
-            {/* Real scenario */}
-            <div
-              className="rounded-xl p-5 max-w-md mx-auto text-left"
-              style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid #1A1A1A' }}
-            >
-              <p className="text-[#888] text-[11px] font-bold uppercase tracking-wider mb-3">Real Scenario — $2,000 Ad Spend</p>
-              <div className="space-y-2">
-                {[
-                  { label: 'Leads generated',   value: '80–130' },
-                  { label: 'Booking rate',       value: '25%'    },
-                  { label: 'Booked appointments', value: '20–32', gold: true },
-                ].map(row => (
-                  <div key={row.label} className="flex items-center justify-between">
-                    <span className="text-[#666] text-[13px]">{row.label}</span>
-                    <span className={`font-bold text-[13px] ${row.gold ? 'text-[#D4AF37]' : 'text-white'}`}>{row.value}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
           {/* ── Final CTA ─────────────────────────────────────── */}
           <div className="text-center">

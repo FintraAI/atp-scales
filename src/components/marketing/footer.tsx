@@ -26,13 +26,10 @@ const FOOTER_COLS = [
   {
     title: 'Legal',
     links: [
-      { label: 'Terms of Service',          href: '/terms'           },
-      { label: 'Privacy Policy',            href: '/privacy'         },
-      { label: 'Data Processing Agreement', href: '/terms#dpa'       },
-      { label: 'Media Release',             href: '/terms#media'     },
-      { label: 'Payment Authorization',     href: '/terms#payment'   },
-      { label: 'Ad Account Responsibility', href: '/terms#adaccount' },
-      { label: 'NDA',                       href: '/terms#nda'       },
+      { label: 'Terms of Service',          href: '/terms'   },
+      { label: 'Privacy Policy',            href: '/privacy' },
+      { label: 'Data Processing Agreement', href: '/terms'   },
+      { label: 'Payment Authorization',     href: '/terms'   },
     ],
   },
 ]
@@ -125,7 +122,7 @@ export function MarketingFooter() {
             <span className="text-[#1E1E1E]">·</span>
             <Link href="/terms"      className="text-[#2A2A2A] hover:text-[#D4AF37] text-[11px] transition-colors">Terms</Link>
             <span className="text-[#1E1E1E]">·</span>
-            <Link href="/terms#dpa"  className="text-[#2A2A2A] hover:text-[#D4AF37] text-[11px] transition-colors">DPA</Link>
+            <Link href="/terms"      className="text-[#2A2A2A] hover:text-[#D4AF37] text-[11px] transition-colors">DPA</Link>
             <span className="text-[#1E1E1E]">·</span>
             <a href="mailto:info@atpscales.com" className="text-[#2A2A2A] hover:text-[#D4AF37] text-[11px] transition-colors">Contact</a>
           </div>
