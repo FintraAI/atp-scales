@@ -671,6 +671,12 @@ video {
 .h-px {
   height: 1px;
 }
+.h-\[36px\] {
+  height: 36px;
+}
+.h-\[56px\] {
+  height: 56px;
+}
 .min-h-\[92vh\] {
   min-height: 92vh;
 }
@@ -706,6 +712,9 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-auto {
+  width: auto;
 }
 .min-w-0 {
   min-width: 0px;
@@ -913,9 +922,6 @@ video {
 .border-t {
   border-top-width: 1px;
 }
-.border-dashed {
-  border-style: dashed;
-}
 .border-\[\#0F0F0F\] {
   --tw-border-opacity: 1;
   border-color: rgb(15 15 15 / var(--tw-border-opacity, 1));
@@ -939,10 +945,6 @@ video {
 .border-\[\#222\] {
   --tw-border-opacity: 1;
   border-color: rgb(34 34 34 / var(--tw-border-opacity, 1));
-}
-.border-\[\#2A2A2A\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(42 42 42 / var(--tw-border-opacity, 1));
 }
 .border-\[rgba\(212\2c 175\2c 55\2c 0\.1\)\] {
   border-color: rgba(212,175,55,0.1);
@@ -1035,6 +1037,10 @@ video {
 }
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .p-1\.5 {
   padding: 0.375rem;
@@ -1813,10 +1819,6 @@ select.atp-input {
   color: rgb(212 175 55 / var(--tw-text-opacity, 1));
 }
 @media (min-width: 640px) {
-
-  .sm\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 
   .sm\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));

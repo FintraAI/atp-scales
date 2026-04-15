@@ -4,7 +4,7 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
-import { AtpHorizontal } from '@/components/brand/logo'
+import Image from 'next/image'
 
 const NAV_LINKS = [
   { href: '/#services', label: 'Services' },
@@ -28,11 +28,11 @@ export function MarketingNav() {
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[68px]">
+        <div className="flex items-center justify-between h-[68px] overflow-hidden">
 
           {/* Logo */}
           <Link href="/" className="shrink-0 opacity-90 hover:opacity-100 transition-opacity">
-            <AtpHorizontal height={32} />
+            <Image src="/ATPScales.png" alt="ATP Scales" height={56} width={180} className="object-contain h-[56px] w-auto" />
           </Link>
 
           {/* Desktop links */}

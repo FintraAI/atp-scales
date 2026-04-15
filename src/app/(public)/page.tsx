@@ -64,14 +64,14 @@ export default function HomePage() {
       {/* ─── PLATFORMS BAR ─────────────────────────────────────────── */}
       <section className="border-y border-[#1A1A1A] py-7 bg-[#0A0A0A]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <p className="text-[#333] text-[10px] uppercase tracking-[0.25em] text-center mb-5">
+          <p className="text-[#666] text-[10px] uppercase tracking-[0.25em] text-center mb-5">
             Platforms We Master
           </p>
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
             {['Meta Ads', 'Google Ads', 'YouTube', 'Instagram'].map((p) => (
               <span
                 key={p}
-                className="text-[#2E2E2E] hover:text-[#D4AF37] font-display font-bold text-[13px] tracking-[0.12em] transition-colors cursor-default"
+                className="text-[#888] hover:text-[#D4AF37] font-display font-bold text-[13px] tracking-[0.12em] transition-colors cursor-default"
               >
                 {p}
               </span>
@@ -150,7 +150,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-4 gap-6 lg:gap-10">
             {[
-              { num: '01', title: 'Strategy & Build', desc: 'We dissect your offer, audience, and competitors — then build campaigns and creatives from the ground up.' },
+              { num: '01', title: 'Strategy & Build', desc: 'We dissect your offer, audience, and competitors then build campaigns and creatives from the ground up.' },
               { num: '02', title: 'Build & Launch',  desc: 'Campaigns and creatives engineered around your offer. We test 2–3 angles from day one.' },
               { num: '03', title: 'Optimize Daily',  desc: 'We monitor CPL daily. Weekly adjustments to creatives, targeting, and budget allocation.' },
               { num: '04', title: 'Scale Winners',   desc: 'Once CPL is under $30 and bookings are consistent, we increase budget and add new campaigns.' },
@@ -178,7 +178,7 @@ export default function HomePage() {
               What to Expect
             </h2>
             <p className="text-[#666] text-[14px] mt-3 max-w-xl leading-relaxed">
-              Based on our campaigns. Results vary by offer, market, and ad spend — but here&apos;s what the math looks like.
+              Based on our campaigns. Results vary by offer, market, and ad spend but here&apos;s what the math looks like.
             </p>
           </div>
 
@@ -187,7 +187,7 @@ export default function HomePage() {
               {
                 tag:      'Meta Ads',
                 headline: '$18 Average CPL',
-                detail:   '$2,00 in ad spend generated 111 leads at $18 cost per lead.',
+                detail:   '$2,000 in ad spend generated 111 leads at $18 cost per lead.',
                 metrics:  [{ label: 'Ad Spend', value: '$2,000' }, { label: 'Leads', value: '111' }, { label: 'CPL', value: '$18' }],
                 featured: false,
               },
@@ -323,7 +323,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center text-[#333] text-[12px]">
-Ad spend is separate and billed directly to Meta
+            Ad spend is separate and billed directly to Meta
           </p>
         </div>
       </section>
@@ -340,7 +340,7 @@ Ad spend is separate and billed directly to Meta
             Ready to Scale?
           </h2>
           <p className="text-[#888] text-[15px] leading-relaxed mb-10 max-w-lg mx-auto">
-            We only work with brands we know we can grow. Book a call — we&apos;ll audit your situation and tell you honestly if we&apos;re a fit.
+            We only work with brands we know we can grow. Book a call and we will audit your situation and tell you honestly if we&apos;re a fit.
           </p>
           <Link href="/book" className="btn-gold inline-flex gap-2 py-5 px-10 text-[15px]">
             Book Your Free Strategy Call <ArrowRight className="w-5 h-5" />

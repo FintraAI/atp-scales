@@ -26,21 +26,6 @@
       "static/chunks/main-app.js",
       "static/chunks/app/error.js"
     ],
-    "/(public)/pricing/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(public)/pricing/page.js"
-    ],
-    "/(public)/terms/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(public)/terms/page.js"
-    ],
-    "/(public)/book/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(public)/book/page.js"
-    ],
     "/_not-found/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
