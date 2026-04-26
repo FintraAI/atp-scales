@@ -30,7 +30,7 @@ export default function HomePage() {
             </h1>
 
             <p className="text-[#B3B3B3] text-lg leading-relaxed max-w-2xl mb-10">
-              We build Meta ad systems that consistently convert cold traffic into booked appointments
+              We build AD systems that consistently convert cold traffic into leads
               that are fully tracked, optimized, and scaled week over week.
             </p>
 
@@ -47,7 +47,7 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-10 mt-16 pt-12 border-t border-[#1A1A1A]">
               {[
                 { value: '$5M+', label: 'Ad Spend Managed'   },
-                { value: '$18',   label: 'Average CPL'         },
+                { value: '$30',   label: 'Average CPL'         },
                 { value: '100+',  label: 'Campaigns Launched'  },
                 { value: '98%',   label: 'Client Retention'    },
               ].map((stat) => (
@@ -95,12 +95,12 @@ export default function HomePage() {
               {
                 icon: Target,
                 title: 'Lead Generation System',
-                desc:  'We build Meta ad funnels designed specifically to generate booked appointments, not just clicks.',
+                desc:  'We build AD funnels designed specifically to generate booked appointments and leads, not just clicks.',
               },
               {
                 icon: BarChart2,
                 title: 'CPL Obsessed',
-                desc:  'Cost per lead is the only number that matters first. We engineer campaigns to stay well under $30 CPL.',
+                desc:  'Cost per lead is the only number that matters first. We engineer campaigns to stay well under $60 CPL.',
               },
               {
                 icon: TrendingUp,
@@ -110,7 +110,7 @@ export default function HomePage() {
               {
                 icon: Zap,
                 title: 'Creative Production',
-                desc:  'Scroll-stopping static and video ads built on data. We test 2–6 creatives at a time to find your best angle.',
+                desc:  'Static and video ads built on data. We test 2–6 creatives at a time to find your best angle.',
               },
               {
                 icon: Shield,
@@ -119,8 +119,8 @@ export default function HomePage() {
               },
               {
                 icon: Clock,
-                title: 'Weekly Reporting',
-                desc:  'Bi-weekly or weekly reports. You always know your spend, CPL, leads, and booked appointments.',
+                title: 'Monthly Reporting',
+                desc:  'You always know your spend, CPL, leads, and booked appointments.',
               },
             ].map((s) => (
               <div
@@ -153,7 +153,7 @@ export default function HomePage() {
               { num: '01', title: 'Strategy & Build', desc: 'We dissect your offer, audience, and competitors then build campaigns and creatives from the ground up.' },
               { num: '02', title: 'Build & Launch',  desc: 'Campaigns and creatives engineered around your offer. We test 2–3 angles from day one.' },
               { num: '03', title: 'Optimize Daily',  desc: 'We monitor CPL daily. Weekly adjustments to creatives, targeting, and budget allocation.' },
-              { num: '04', title: 'Scale Winners',   desc: 'Once CPL is under $30 and bookings are consistent, we increase budget and add new campaigns.' },
+              { num: '04', title: 'Scale Winners',   desc: 'Once CPL is under $60 and bookings are consistent, we increase budget and add new campaigns.' },
             ].map((step, i) => (
               <div key={step.num} className="relative">
                 {i < 3 && (
@@ -186,23 +186,23 @@ export default function HomePage() {
             {[
               {
                 tag:      'Meta Ads',
-                headline: '$18 Average CPL',
-                detail:   '$2,000 in ad spend generated 111 leads at $18 cost per lead.',
-                metrics:  [{ label: 'Ad Spend', value: '$2,000' }, { label: 'Leads', value: '111' }, { label: 'CPL', value: '$18' }],
+                headline: '$30 Average CPL',
+                detail:   '$2,000 in ad spend generated 66 leads at $30 cost per lead.',
+                metrics:  [{ label: 'Ad Spend', value: '$2,000' }, { label: 'Leads', value: '66' }, { label: 'CPL', value: '$30' }],
                 featured: false,
               },
               {
                 tag:      'Lead Volume',
-                headline: '142 Leads in a Month',
-                detail:   'Up 45% from the prior month. Same budget, better creative and targeting.',
-                metrics:  [{ label: 'Prior Month', value: '98' }, { label: 'This Month', value: '142' }, { label: 'Growth', value: '+45%' }],
+                headline: '82 Leads This Month',
+                detail:   'Up 24% from the prior month. Same budget, better creative and targeting.',
+                metrics:  [{ label: 'Prior Month', value: '66' }, { label: 'This Month', value: '82' }, { label: 'Growth', value: '+24%' }],
                 featured: true,
               },
               {
                 tag:      'Bookings',
                 headline: '20–32 Appointments',
-                detail:   'At a 25% booking rate on 80–130 leads from $2,000 ad spend.',
-                metrics:  [{ label: 'Leads', value: '80–130' }, { label: 'Booking Rate', value: '25%' }, { label: 'Booked', value: '20–32' }],
+                detail:   'At a 25% booking rate on 60–80 leads from $2,000 ad spend.',
+                metrics:  [{ label: 'Leads', value: '60-80' }, { label: 'Booking Rate', value: '25%' }, { label: 'Booked', value: '15–20' }],
                 featured: false,
               },
             ].map((r) => (
@@ -255,17 +255,16 @@ export default function HomePage() {
                 featured: false,
                 cta:      'Get Started',
                 features: [
-                  '1 core offer',
                   'Basic creative set (2–3 ads)',
                   'Lead generation system',
                   'SMS lead notifications',
                   'Light optimization (weekly tweaks)',
-                  'Bi-weekly reports',
+                  'Monthly reports',
                 ],
               },
               {
                 name:     'Growth',
-                price:    '$2,000',
+                price:    '$2,500',
                 desc:     'Scaling revenue and maximizing bookings',
                 featured: true,
                 cta:      'Book a Call',
@@ -275,7 +274,8 @@ export default function HomePage() {
                   'Faster optimization (multiple adjustments/week)',
                   'Offer testing (finding better-performing angles)',
                   'Scaling strategy (increasing budget on winners)',
-                  'Weekly reports + monthly strategy call',
+                  'Priority Support',
+                  'Monthly reports + monthly strategy call',
                 ],
               },
             ].map((plan) => (
@@ -346,7 +346,7 @@ export default function HomePage() {
             Book Your Free Strategy Call <ArrowRight className="w-5 h-5" />
           </Link>
           <p className="text-[#333] text-[11px] mt-5 tracking-wide">
-            Free 30-min call · No commitment · Limited spots available
+            Free 30-min call · No commitment 
           </p>
         </div>
       </section>

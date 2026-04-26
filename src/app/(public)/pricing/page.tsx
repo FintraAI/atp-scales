@@ -18,29 +18,27 @@ const PLANS = [
     featured: false,
     cta:      'Get Started',
     features: [
-      '1 core offer',
       'Basic creative set (2–3 ads)',
       'Lead generation system',
       'SMS lead notifications',
       'Light optimization (weekly tweaks)',
-      'Bi-weekly reports',
+      'Monthly reports',
     ],
   },
   {
     name:     'Growth',
-    price:    '$2,000',
+    price:    '$2,500',
     bestFor:  'Scaling revenue and maximizing bookings',
     featured: true,
     cta:      'Book a Call',
     features: [
-      'Everything in Essential',
-      'More creatives (4–6 ads running/testing)',
-      'Faster optimization (multiple adjustments/week)',
-      'Offer testing (finding better-performing angles)',
-      'Scaling strategy (increasing budget on winners)',
-      'Priority support',
-      'Weekly reports',
-      'Monthly strategy call',
+        'Everything in Essential',
+        'More creatives (4–6 ads running/testing)',
+        'Faster optimization (multiple adjustments/week)',
+        'Offer testing (finding better-performing angles)',
+        'Scaling strategy (increasing budget on winners)',
+        'Priority Support',
+        'Monthly reports + monthly strategy call',
     ],
   },
 ]
@@ -120,7 +118,7 @@ export default function PricingPage() {
           >
             <p className="text-[#D4AF37] text-[11px] font-bold uppercase tracking-[0.18em] mb-1">Ad Spend — Separate</p>
             <p className="text-white text-[15px] font-semibold mb-1">Recommended: $1,500–$3,000+ / month</p>
-            <p className="text-[#666] text-[13px]">Paid directly to Meta. We manage it — you own the account.</p>
+            <p className="text-[#666] text-[13px]">Paid directly to Meta. We manage it, you own the account.</p>
           </div>
 
           {/* ── CPL Benchmark ─────────────────────────────────── */}
@@ -128,12 +126,12 @@ export default function PricingPage() {
             <div className="mb-6">
               <p className="text-[#D4AF37] text-[11px] font-bold uppercase tracking-[0.2em] mb-2">The Only Metric That Matters First</p>
               <h2 className="font-display font-black text-3xl lg:text-4xl text-white">Cost Per Lead (CPL)</h2>
-              <p className="text-[#666] text-[13px] mt-2">For med spas, here&apos;s what the numbers look like:</p>
+              <p className="text-[#666] text-[13px] mt-2">For ad spend, here&apos;s what the numbers look like:</p>
             </div>
             <div className="grid grid-cols-3 gap-4">
               {[
-                { label: 'Good',   range: '$10–$20',  color: '#059669', bg: 'rgba(5,150,105,0.07)',   border: 'rgba(5,150,105,0.2)'  },
-                { label: 'Normal', range: '$15–$30',  color: '#D97706', bg: 'rgba(217,119,6,0.07)',   border: 'rgba(217,119,6,0.2)'  },
+                { label: 'Good',   range: '$15–$25',  color: '#059669', bg: 'rgba(5,150,105,0.07)',   border: 'rgba(5,150,105,0.2)'  },
+                { label: 'Normal', range: '$25–$35',  color: '#D97706', bg: 'rgba(217,119,6,0.07)',   border: 'rgba(217,119,6,0.2)'  },
                 { label: 'Bad',    range: '$35+',     color: '#DC2626', bg: 'rgba(220,38,38,0.07)',   border: 'rgba(220,38,38,0.2)'  },
               ].map(tier => (
                 <div
@@ -147,7 +145,7 @@ export default function PricingPage() {
                 </div>
               ))}
             </div>
-            <p className="text-[#555] text-[12px] mt-4 text-center">If we stay under $30 CPL, we&apos;re winning.</p>
+            <p className="text-[#555] text-[12px] mt-4 text-center">If we stay under $35 CPL, we&apos;re winning.</p>
           </div>
 
 

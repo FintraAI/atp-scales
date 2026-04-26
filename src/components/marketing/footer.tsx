@@ -46,7 +46,7 @@ export function MarketingFooter() {
               Ready to scale your brand?
             </p>
             <p className="text-[#6B6B6B] text-sm mt-1">
-              Free 30-min strategy call. No commitment. Limited spots.
+              Free 30-min strategy call. No commitment.
             </p>
           </div>
           <Link href="/book" className="btn-gold shrink-0 py-3.5 px-8 text-[14px]">

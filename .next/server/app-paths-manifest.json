@@ -1,6 +1,6 @@
 {
-  "/(public)/page": "app/(public)/page.js",
-  "/(public)/pricing/page": "app/(public)/pricing/page.js",
+  "/(public)/terms/page": "app/(public)/terms/page.js",
   "/(public)/book/page": "app/(public)/book/page.js",
-  "/(public)/terms/page": "app/(public)/terms/page.js"
+  "/(public)/pricing/page": "app/(public)/pricing/page.js",
+  "/(public)/page": "app/(public)/page.js"
 }

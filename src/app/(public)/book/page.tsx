@@ -3,7 +3,7 @@
 import type { Metadata } from 'next'
 import { MarketingNav }    from '@/components/marketing/nav'
 import { MarketingFooter } from '@/components/marketing/footer'
-import { CalendlyWidget }  from '@/components/booking/calendly-widget'
+import { GoogleCalendarWidget } from '@/components/booking/google-calendar-widget'
 import { Clock, TrendingUp, Users, CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Schedule a free 30-minute strategy call with the ATP Scales team.',
 }
 
-const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/atpscales/strategy-call'
+const BOOKING_URL = process.env.NEXT_PUBLIC_GOOGLE_CALENDAR_URL || ''
 
 const PERKS = [
   { icon: Clock,       title: '30 Minutes',        desc: 'No fluff, straight to what matters.' },
@@ -70,16 +70,16 @@ export default function BookPage() {
             ))}
           </div>
 
-          {/* Calendly widget */}
-          <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid #1A1A1A' }}>
-            <CalendlyWidget url={CALENDLY_URL} />
+          {/* Google Calendar widget */}
+          <div className="rounded-2xl overflow-hidden">
+            <GoogleCalendarWidget url={BOOKING_URL} />
           </div>
 
           {/* Stats strip */}
           <div className="mt-8 grid grid-cols-4 gap-4 border border-[#1A1A1A] rounded-2xl bg-[#0A0A0A] px-6 py-5">
             {[
               { value: '$5M+', label: 'Ad Spend Managed'   },
-              { value: '$18',   label: 'Avg. Cost Per Lead'  },
+              { value: '$30',   label: 'Avg. Cost Per Lead'  },
               { value: '100+',  label: 'Campaigns Launched'  },
               { value: '98%',   label: 'Client Retention'    },
             ].map(stat => (
